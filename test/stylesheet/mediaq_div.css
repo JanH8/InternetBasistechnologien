@@ -1,0 +1,12 @@
+@media screen and (max-width: 500px){
+    .stimage{
+        float: top;
+        position: center;
+        width: 100%;
+    }
+    #logo{
+        position: center;
+        margin: auto;
+        float: top;
+    }
+}

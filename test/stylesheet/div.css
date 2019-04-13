@@ -1,0 +1,23 @@
+.head{
+    /*Styling*/
+    border: 5px solid #2549BB;
+    margin: 15px;
+    border-radius: 5px;
+    border-left: 15px solid #2549BB;
+    border-right: 15px solid #2549BB;
+    /*positioning*/
+    max-width: available;
+    height: 75px;
+    transition: box-shadow 250ms;
+    overflow: hidden;
+}
+
+.head:hover{
+    box-shadow: 4px 4px 4px gray;
+    overflow: hidden;
+}
+.stimage{
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+}
