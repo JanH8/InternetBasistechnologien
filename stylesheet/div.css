@@ -1,0 +1,47 @@
+/*HTML*/
+html{
+    background-image: repeating-linear-gradient(250deg, lightblue, #9dd2e9, lightskyblue);
+}
+
+/*Container for Headings*/
+.head{
+    width: available;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: white;
+
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid blue;
+
+    transition: box-shadow 300ms;
+}
+.head:hover{
+    box-shadow: 4px 4px 10px white;
+}
+/*Container for Media*/
+#logo{
+    width: 200px;
+    float: top;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+/*Navigation*/
+.navbutton{
+    width: available;
+    height: available;
+    border: 1px solid #2157C0;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    font-weight: lighter;
+
+    transition: background-color 300ms, border 500ms;
+}
+.navbutton:hover{
+    background: #4469c0;
+    border: 1px solid lightblue;
+}
+
