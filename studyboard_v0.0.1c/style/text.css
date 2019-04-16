@@ -1,0 +1,33 @@
+/*Heading*/
+h1{
+    /*Position*/
+    position: relative;
+    text-align: right;
+    right: 15px;
+    margin: 10px;
+    /*Style*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+    font-style: italic;
+    letter-spacing: 10px;
+    color: rgba(42,42,42,0.87);
+    transition: color 1s;
+    z-index: 3;
+}
+h1:hover{
+    color: blue;
+}
+
+/*Link*/
+a.inherit{
+    text-decoration: none;
+    z-index: 3;
+}
+a.inherit:hover{
+    text-decoration: none;
+}
+a.inherit:visited{
+    color: inherit;
+    text-decoration: inherit;
+}
