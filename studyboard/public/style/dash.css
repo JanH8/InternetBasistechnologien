@@ -1,0 +1,72 @@
+/*Quick Navigation on Dashboard*/
+.quicklinks{
+    /*Font Styling*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+    color: black;
+    /*Positioning*/
+    position: absolute;
+    width: 90%;
+    height: 50px;
+    top: 125px;
+    left: 5%;
+    /*Styling*/
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid lightgrey;
+    transition: right 2s;
+}
+.quicklinks > div{
+    margin-top: 10px;
+    font-weight: lighter;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.quicklinks > div > a > i {
+    font-size: 125%;
+    color: blue;
+    border-radius: 15px;
+    text-align: center;
+    transition: color .5s;
+    text-decoration: none;
+}
+.quicklinks > div > a > i:hover{
+    color: lightskyblue;
+    text-decoration: none;
+}
+/*Tooltip for QuickNav*/
+.quicklinks .tooltip{
+    display: block;
+    opacity: 0;
+    color: gray;
+    text-align: center;
+    padding: 5px 0;
+    position: relative;
+    z-index: 1;
+    width: 120px;
+    bottom: 0;
+    left: 15px;
+    margin-left: -60px;
+    transition: opacity 1s;
+    text-decoration: none;
+    border: none;
+}
+.quicklinks > div:hover .tooltip{
+    opacity: 1;
+}
+#logout > a > i{
+    color: gray;
+}
+#logout:hover > a > i{
+    color: red;
+}
+/*Media Querry*/
+@media screen and (max-width: 650px){
+    .quicklinks > div{
+        margin: 0;
+    }
+}
+
+/*Image Galery*/

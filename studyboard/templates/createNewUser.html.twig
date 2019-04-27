@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Neuen Benutzer erstellen</title>
+    <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
+</head>
+<body>
+<div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
+<div class="navigatorcont">
+    <form method="post" action="/createNewAccount">
+        <label for="Username"></label>
+        <input type="text" name="name" id="Username" placeholder="Username" required>
+        <label for="Email"></label>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <label for="Password"></label>
+        <input type="Password" name="password" id="Password" placeholder="Passwort" pattern=".{6,}" required/>
+        <label for="Farbe"></label>
+        <input type="color" name="color" id="color" placeholder="Farbe" required>
+        <input type="submit" value="Submit" id="submit"/>
+    </form>
+</div>
+<script src=""></script>
+</body>
+</html>
