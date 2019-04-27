@@ -8,7 +8,7 @@ use Doctrine\DBAL\Connection;
 use App\Services\DatabaseService;
 use Exception;
 
-class StudyboardControler extends AbstractController {
+class StudyboardController extends AbstractController {
 
     protected $PDO;
 
@@ -113,7 +113,7 @@ class StudyboardControler extends AbstractController {
      */
     public function forumTable(DatabaseService $database) {
         if(!$this->userIsLoggedIn()) {
-            $this->redirect("index.html.twig");
+            $this->render("index.html.twig");
         }
         else {
             $forumlist = $database->getAllForums();
