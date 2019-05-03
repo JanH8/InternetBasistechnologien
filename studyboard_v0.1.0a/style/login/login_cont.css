@@ -1,0 +1,44 @@
+html{
+    overflow-y: hidden;
+}
+h1.c{
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: center;
+    position: relative;
+}
+.blline{
+    padding: 25px;
+    position: relative;
+    display: block;
+    width: 100%;
+    border-top: 2px solid rgba(128, 128, 128, 0.51);
+    background-color: #3858ff;
+    box-shadow: 1px 1px 4px gray;
+    letter-spacing: 3px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: lighter;
+}
+.contact_box p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-left: 25px;
+}
+.contact_box{
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0;
+    bottom: 77px;
+    border: 1px solid blue;
+    background-color: rgba(255, 255, 255, 0.84);
+    box-shadow: 1px 1px 5px gray;
+
+    transition: height .5s, width .5s;
+    overflow: hidden;
+}

@@ -1,0 +1,44 @@
+/*Im Tabnavigator soll es keine Navigationsleiste geben*/
+.tabbar::-webkit-scrollbar{
+    display: none;
+}
+
+.tabbar{
+    /*Position*/
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 60px;
+    display: inline-block;
+    overflow-x: scroll;
+    padding: 0;
+    white-space: nowrap;
+    /*Styling*/
+    font-size: 0;
+    border: 2px solid blue;
+    background-color: white;
+}
+button.tab{
+    /*Position*/
+    display: inline-block;
+    height: 100%;
+    /*Style*/
+    font-size: 20px;
+    background-color: white;
+    outline: none;
+    border: none;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-right: 2px solid blue;
+    transition: background-color .2s, color .2s;
+}
+button.tab:hover, button.tab.active:hover {
+    background-color: blue;
+    color: white;
+    border-right: 2px solid blue;
+}
+button.tab.active{
+    background-color: #3858ff;
+    color: white;
+}
