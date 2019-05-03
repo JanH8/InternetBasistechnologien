@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Studyboard®</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../style/login/login.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/login/login_cont.css"/>
+</head>
+<body>
+<div class="logobox"><img src="../media/studyboard_logo.png" id="logo"></div>
+<div class="navigatorcont">
+    <h1 class="loginhead">Login</h1>
+    <form>
+        <label for="Username"></label>
+        <input type="text" id="Username" placeholder="Username" maxlength="8" minlength="8" required>
+        <label for="Password"></label>
+        <input type="Password" id="Password" placeholder="Passwort" pattern=".{6,}" required/>
+        <input type="submit" value="Submit" id="submit" onclick="scip()"/>
+    </form>
+</div>
+<div class="footer" id="foot">
+    <a href="#impressum">Impressum</a>
+    <a href="#infos" onclick="tooglecontactmenu()">Kontakt</a>
+</div>
+<div class="contact_box" id="contmen">
+    <h1 class="c" onclick="tooglecontactmenu()">Kontakt</h1>
+    <div class="blline">Vielen Dank für Ihr Interesse!</div>
+    <p><b>Name: </b>Schönhoff</p>
+    <p><b>Nachname: </b>Leon</p>
+    <p><b>PLZ: </b>48324</p>
+    <p><b>Ort: </b>Sendenhorst</p>
+    <p><b>E-Mail: </b>leon.schoenhoff@gmail.com</p>
+</div>
+<script src=../script/login/dummylogin.js></script>
+<script src=../script/login/contact.js></script>
+</body>
+</html>

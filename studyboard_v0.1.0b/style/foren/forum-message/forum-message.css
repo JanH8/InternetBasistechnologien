@@ -1,0 +1,17 @@
+html{
+    overflow: hidden;
+}
+
+.content-msg{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 20px;
+    background-color: white;
+    display: none;
+    overflow-y: scroll;
+}
+.content-msg > div{
+    padding: 2px 0;
+}
