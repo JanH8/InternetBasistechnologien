@@ -1,35 +1,3 @@
-.head{
-    position: absolute;
-    display: block;
-    margin: 15px;
-    width: 90%;
-    height: 70px;
-    border-bottom: 3px solid blue;
-    box-shadow: 0 2px 8px gray;
-    transition: box-shadow 300ms;
-    left: 4%;
-}
-.head:hover{
-    box-shadow: 1px 4px 10px gray;
-}
-#logo{
-    position: relative;
-    float: left;
-    width: 200px;
-    padding: 12px;
-}
-a.inh{
-    color:inherit;
-    text-decoration: none;
-}
-a.inh:visited{
-    color:inherit;
-    text-decoration: none;
-}
-a.inh:active{
-    color:inherit;
-    text-decoration: none;
-}
 /*Alertbox*/
 div.infobox{
     padding-top: 8px;
@@ -60,6 +28,6 @@ div.infobox{
     overflow: hidden;
     color: blue;
 }
-.infobox a:visited{
+.infobox a:visited {
     color: inherit;
 }
