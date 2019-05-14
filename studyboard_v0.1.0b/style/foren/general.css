@@ -9,6 +9,7 @@ body{
     background: white;
     color: black;
     position: relative;
+    transition: right .2s;
 }
 .forum-foot{
     height: 100px;

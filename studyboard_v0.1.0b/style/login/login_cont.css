@@ -39,7 +39,7 @@ h1.c{
     background-color: rgba(255, 255, 255, 0.96);
     box-shadow: 1px 1px 5px gray;
 
-    transition: height .5s, width .5s;
+    transition: height .5s, width .25s;
     overflow: hidden;
 }
 .loginhead{

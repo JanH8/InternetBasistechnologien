@@ -10,6 +10,7 @@ function togglenav() {
         document.getElementById("navc").style.borderColor="blue";
         document.getElementById("navbtn").innerHTML="view_headline";
         document.getElementById("close").style.opacity="0";
+        document.getElementById("body").style.right="0";
 
 
         shownav = false;
@@ -21,6 +22,7 @@ function togglenav() {
         document.getElementById("navc").style.borderColor="red";
         document.getElementById("navbtn").innerHTML="clear";
         document.getElementById("close").style.opacity="0.4";
+        document.getElementById("body").style.right="500px";
         shownav = true;
     }
 }
