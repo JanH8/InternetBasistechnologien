@@ -1,14 +1,20 @@
-var currentForum = "";
-
+var currentForum = document.getElementById("forumIframe").src;
 function changeCurrentForum(event, forumUrl) {
-    currentForum = forumUrl;
-    document.getElementById("forumIframe").src = "/forum/" + currentForum;
+    var tabs = document.getElementsByClassName('tab');
+    for (var tab of tabs) {
+        tab.classList.remove("active");
+    }
+    event.target.classList.add("active");
+    currentForum = "/forumTable/" + forumUrl;
+    document.getElementById("forumIframe").src = currentForum;
 }
 
 function sendPostToForum() {
     if (currentForum) {
         var message = document.getElementById("chatin").value;
-        var forumApiUrl = "/forumApi/" + currentForum;
+        var regex = new RegExp('forumTable', 'i');
+        var forumApiUrl = currentForum.replace(regex, 'forumApi');
+        console.log(forumApiUrl);
         var ajax = new XMLHttpRequest();
         ajax.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -17,7 +23,6 @@ function sendPostToForum() {
         };
         ajax.open('POST', forumApiUrl);
         ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        ajax.send('&message=' + message);
-
+        ajax.send('&message=' + message );
     }
 }

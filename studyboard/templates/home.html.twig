@@ -3,60 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <title>Studyboard | Home</title>
-        <link href="./style/global/div.css" rel="stylesheet" type="text/css"/>
-        <link href="./style/global/nav.css" rel="stylesheet" type="text/css"/>
-        <link href="./style/global/text.css" rel="stylesheet" type="text/css"/>
-        <link href="./style/index/dash.css" rel="stylesheet" type="text/css"/>
-        <link href="./style/index/image_gal.css" rel="stylesheet" type="text/css"/>
-        <link href="./style/index/alert.css" rel="stylesheet" type="text/css"/>
-        <link href="./style/global/logout/logout-popup.css" rel="stylesheet" type="text/css"/>
-        <link href="./style/global/mediaquerry/global-mediaq.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/global/div.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/index/dash.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/index/image_gal.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/index/alert.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/global/mediaquerry/global-mediaq.css" rel="stylesheet" type="text/css"/>
         <!--Material icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <!--End of Head-->
     <body>
-        <!--Logout-Popup-->
-        <div class="bblock" id="dblock">
-            <h1>Wirklich ausloggen?</h1>
-            <div class="popup">
-                <a href="/logout" id="logoutbtn" >Logout</a>
-                <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
-            </div>
-        </div>
-        <a class="inh" href="index.html">
+        
+        <a class="inh" href="/home">
             <div class="head">
-                <img id="logo" src="./media/studyboard_logo.png">
+                <img id="logo" src="/media/studyboard_logo.png">
                 <h1 class="h" id="heading">Studyboard</h1>
             </div>
         </a>
-        <!--End of Head-->
-        <div class="navbtn" id="navc" onclick="togglenav()">
-            <i class="material-icons" id="navbtn">view_headline</i>
-        </div>
-
-        <div class="navbar" id="navbar">
-            <img id="navbarlogo" src="./media/studyboard_logo.png">
-            <a class="active" href="/home">Home</a>
-            <a href="/foren">Foren</a>
-            <a href="#settings">Einstellungen</a>
-            <a href="#freund">Freunde</a>
-            <a href="#Impressum">Impressum</a>
-            <a href="#logout" onclick="togglelogoutalert()">Abmelden</a>
-        </div>
-        <div id="close" onclick="togglenav()"></div>
-        <!--End -->
+        
+        {% include 'sideMenue.html.twig' %}
 
         <!-- Dashboard -->
         <div class="quicklinks" id="qlinks">
             <div>
-                <a href="./">
+                <a href="/home">
                     <i class="material-icons">home</i>
                 </a>
                 <span class="tooltip">Home</span>
             </div>
             <div>
-                <a href="foren">
+                <a href="/forum">
                     <i class="material-icons">announcement</i>
                 </a>
                 <span class="tooltip">Foren</span>
@@ -81,9 +58,6 @@
             </div>
         </div>
 
-        <script src="./script/global/navbar.js"></script>
-        <script src="./script/index/dashboard.js"></script>
-        <script src="./script/global/logout/logout.js"></script>
-        <script src="./script/global/logout/refer.js"></script>
+        <script src="/script/index/dashboard.js"></script>
     </body>
 </html>
