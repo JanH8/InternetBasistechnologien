@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <link href="/style/forum_provisorisch.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <table>
+            {% for message in messages %}
+                <tr>
+                    {% if user == message.studentName %}
+                        <td></td>
+                    {% endif %}
+                    <td>                
+                        {{message.tstmp}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }} 
+                        <hr>
+                        {{ message.contend }}
+
+                    </td>
+                    {% if user != message.studentName %}
+                        <td></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
