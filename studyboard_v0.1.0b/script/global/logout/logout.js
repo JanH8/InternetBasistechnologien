@@ -9,3 +9,7 @@ function togglelogoutalert(){
         logoutalert = true;
     }
 }
+
+function backtologin(){
+    window.location="login.html";
+}

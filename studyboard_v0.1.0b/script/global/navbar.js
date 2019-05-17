@@ -2,7 +2,7 @@ let shownav = false;
 let btn = document.getElementById("navbtn");
 let bar = document.getElementById("navbar");
 let lg = document.getElementById("btnlogo");
-let blocker = document.getElementById("navblock")
+//let blocker = document.getElementById("navblock");
 
 function togglenav() {
     if(shownav){

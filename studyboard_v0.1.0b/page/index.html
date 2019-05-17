@@ -1,40 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" id="html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Studyboard | Home</title>
-    <link href="../style/global/div.css" rel="stylesheet" type="text/css"/>
-    <link href="../style/global/nav.css" rel="stylesheet" type="text/css"/>
-    <link href="../style/global/text.css" rel="stylesheet" type="text/css"/>
-    <link href="../style/index/dash.css" rel="stylesheet" type="text/css"/>
-    <link href="../style/index/image_gal.css" rel="stylesheet" type="text/css"/>
-    <link href="../style/index/alert.css" rel="stylesheet" type="text/css"/>
-    <link href="../style/global/logout/logout-popup.css" rel="stylesheet" type="text/css"/>
-    <link href="../style/global/mediaquerry/global-mediaq.css" rel="stylesheet" type="text/css"/>
+    <link href="../style/global/div.css" rel="stylesheet" type="text/css">
+    <link href="../style/global/text.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../style/global/nav.css">
+    <link rel="stylesheet" type="text/css" href="../style/global/logout/logout-popup.css">
+
     <!--Material icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Media Querry -->
-    <link rel="stylesheet" type="text/css" href="../style/global/mediaquerry/index-mediaq.css"/>
-    <!-- MQ for Navmenu-->
-    <link rel="stylesheet" type="text/css" href="../style/global/mediaquerry/global-mediaq.css"/>
 </head>
-<!--End of Head-->
-<body id="body">
-<!--Logout-Popup-->
-<div class="bblock" id="dblock">
-    <h1>Wirklich ausloggen?</h1>
-    <div class="popup">
-        <a href="#logout" id="logoutbtn" onclick="backtologin()">Logout</a>
-        <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
+<body>
+
+<div class="head">
+    <div class="logobox"><img id="logo" src="../media/studyboard_logo.png"></div>
+    <div class="navigatorcont"><h1 class="h">Studyboard</h1>
     </div>
 </div>
-<a class="inh" href="index.html">
-    <div class="head">
-        <img id="logo" src="../media/studyboard_logo.png">
-        <h1 class="h" id="heading">Studyboard</h1>
-    </div>
-</a>
-<!--End of Head-->
+<!--End of heading-->
+
 <div id="navbar">
     <img src="../media/studyboard_logo.png" id="barlogo">
     <div id="space"></div>
@@ -46,44 +31,20 @@
 </div>
 <button id="navbtn" onclick="togglenav()"><i class="material-icons" id="btnlogo">reorder</i> </button>
 <!--End of Nav-->
-<!-- Dashboard -->
-<div class="quicklinks" id="qlinks">
-    <div>
-        <a href="index.html">
-            <i class="material-icons">home</i>
-        </a>
-        <span class="tooltip">Home</span>
-    </div>
-    <div>
-        <a href="foren.html">
-            <i class="material-icons">announcement</i>
-        </a>
-        <span class="tooltip">Foren</span>
-    </div>
-    <div>
-        <a href="#account">
-            <i class="material-icons">face</i>
-        </a>
-        <span class="tooltip">Freunde</span>
-    </div>
-    <div>
-        <a href="#settings">
-            <i class="material-icons">settings</i>
-        </a>
-        <span class="tooltip">Settings</span>
-    </div>
 
-    <div id="logout">
-        <a href="#logout" onclick="togglelogoutalert()">
-            <i class="material-icons">power_settings_new</i>
-        </a>
-        <span class="tooltip">Logout</span>
+<div class="bblock" id="dblock" style="float: top">
+    <h1>Wirklich ausloggen?</h1>
+    <div class="popup">
+        <a href="#logout" id="logoutbtn" onclick="backtologin()">Logout</a>
+        <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
     </div>
 </div>
+<!--End of logout-Popup-->
+
+
 
 <script src="../script/global/navbar.js"></script>
-<script src="../script/index/dashboard.js"></script>
-<script src="../script/global/logout/logout.js"></script>
 <script src="../script/global/logout/refer.js"></script>
+<script src="../script/global/logout/logout.js"></script>
 </body>
 </html>
