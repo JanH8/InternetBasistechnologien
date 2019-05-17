@@ -7,7 +7,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     top: -20px;
     right: 0;
-    z-index: 150;
+    z-index: 300;
     overflow: hidden;
     transition: height .5s;
 }

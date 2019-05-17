@@ -6,11 +6,11 @@
     font-weight: lighter;
     color: black;
     /*Positioning*/
-    position: absolute;
+    position: relative;
     width: 90%;
     height: 50px;
-    top: 125px;
     left: 5%;
+    z-index: 15;
     /*Styling*/
     display: flex;
     justify-content: center;

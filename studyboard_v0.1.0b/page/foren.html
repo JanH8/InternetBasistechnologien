@@ -21,13 +21,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
+
+
 <body>
 <div class="headwrap">
-    <div class="head">
-        <img id="logo" src="../media/studyboard_logo.png">
-        <h1 class="h">Foren</h1>
-    </div>
+    <a href="index.html">
+        <div class="head">
+            <img id="logo" src="../media/studyboard_logo.png">
+            <h1 class="h">Foren</h1>
+        </div>
+    </a>
     <!--End of head-->
+
+
     <div class="tabbar" id="tabbar">
         <button class="tab space">spa</button>
         <!--First button is spacing-->
@@ -47,13 +53,27 @@
 <button class="scrollbutton" onclick="scrollt('forw')"><i class="material-icons">keyboard_arrow_right</i></button>
 <button class="scrollbutton" onclick="scrollt()" id="scrollback"><i class="material-icons">keyboard_arrow_left</i></button>
 <!--End of Tabs / Header in General-->
+
+<div id="navbar">
+    <img src="../media/studyboard_logo.png" id="barlogo">
+    <div id="space"></div>
+    <a href="index.html"><i class="material-icons">home</i> Home</a>
+    <a href="foren.html"><i class="material-icons">announcement</i>Foren</a>
+    <a href="#account"><i class="material-icons">face</i>Freund</a>
+    <a href="#settings"><i class="material-icons">settings</i>Settings</a>
+    <a href="#logout" id="navlogout" onclick="togglelogoutalert()"><i class="material-icons">power_settings_new</i>Logout</a>
+</div>
+<button id="navbtn" onclick="togglenav()"><i class="material-icons" id="btnlogo">reorder</i> </button>
+<div id="navblock" onclick="togglenav()"></div>
+<!--End of Nav-->
+
 <div class="content-msg" id="forum1">
     <div>Nachrichten von Forum 1</div>
     <div class="msg-sent">Hallo, hier ist eine wichtige Nachricht, welche von Leon gesendet worden ist!</div>
     <div class="msg-rec">Hallo, was geht!</div>
     <div class="msg-sent">Jo?</div>
     <div class="msg-rec">Hallo, was geht!</div>
-    <div class="msg-rec">1, was geht!</div>
+    <div class="msg-rec">1, was geht! <div class="metadiv">Absender</div></div>
     <div class="msg-rec">2, was geht!</div>
     <div class="msg-rec">3, was geht!</div>
     <div class="msg-rec">4, was geht!</div>
@@ -86,20 +106,6 @@
     <i class="material-icons">keyboard_arrow_up</i>
 </button>
 <!--End of foot-->
-<div class="navbtn" id="navc" onclick="togglenav()">
-    <i class="material-icons" id="navbtn">view_headline</i>
-</div>
-<div class="navbar" id="navbar">
-    <img id="navbarlogo" src="../media/studyboard_logo.png">
-    <a href="index.html">Home</a>
-    <a class="active" href="foren.html">Foren</a>
-    <a href="#settings">Einstellungen</a>
-    <a href="#freund">Freunde</a>
-    <a href="#Impressum">Impressum</a>
-    <a href="#logout" onclick="togglelogoutalert()">Abmelden</a>
-</div>
-<div id="close" onclick="togglenav()"></div>
-<!--End of Navbar-->
 
 <!--Logout-Popup-->
 <div class="bblock" id="dblock" style="float: top">
@@ -109,6 +115,7 @@
         <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
     </div>
 </div>
+
 
 <script src="../script/foren/hide_input.js"></script>
 <script src="../script/global/navbar.js"></script>

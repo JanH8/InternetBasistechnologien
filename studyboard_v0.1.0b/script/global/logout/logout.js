@@ -5,7 +5,7 @@ function togglelogoutalert(){
         logoutalert = false;
     }
     else{
-        document.getElementById("dblock").style.height="120%";
+        document.getElementById("dblock").style.height="110%";
         logoutalert = true;
     }
 }
