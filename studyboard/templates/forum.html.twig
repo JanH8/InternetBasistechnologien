@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <link href="/style/forum_provisorisch.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">
+        <title>Studyboard | Forum</title>
+
+        <!--Head-->
+        <link href="/style/global/div.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
+        <!--Foot-->
+        <link href="/style/foren/general.css" rel="stylesheet" type="text/css"/>
+        <!--Tabbar-->
+        <link href="/style/foren/forum-select/forum-select.css" rel="stylesheet" type="text/css"/>
+        <!--TabContent-->
+        <link href="/style/foren/forum-message/forum-message.css" rel="stylesheet" type="text/css"/>
+        <!--Material icons-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     </head>
     <body>
-        <table>
-            {% for message in messages %}
-                <tr>
-                    {% if user == message.studentName %}
-                        <td></td>
-                    {% endif %}
-                    <td>                
-                        {{message.tstmp}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }} 
-                        <hr>
-                        {{ message.contend }}
 
-                    </td>
-                    {% if user != message.studentName %}
-                        <td></td>
+        <div class="content-msg">  
+            {% for message in messages %}
+                
+                    {% if user == message.studentName %}
+                        <div class="msg-sent">
+                    {% else %}
+                        <div class="msg-rec">
                     {% endif %}
-                </tr>
+                   {{ message.contend }}<hr> {{message.tstmp}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }}</div>
             {% endfor %}
-        </table>
+      <div class="msg-spacer"></div>
+</div>
     </body>
 </html>
