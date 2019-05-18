@@ -29,7 +29,7 @@
                     {% endif %}
                  {{ message.contend }}
                             <hr>
-                            <span class="metadata-msg"> {{message.tstmp}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }}</span>
+                            <span class="metadata-msg"> {{message.tstmp|date("d.m.Y H:i", "Europe/Paris")}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }}</span>
                         </div>
             {% endfor %}
       <div class="msg-spacer"></div>
