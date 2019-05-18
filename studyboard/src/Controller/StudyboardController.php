@@ -58,6 +58,13 @@ class StudyboardController extends AbstractController {
     }
 
     /**
+     * @Route("/impressum", name="newAccount")
+     */
+    public function impressum() {
+        return $this->render('impressum.html.twig');
+    }
+
+    /**
      * @Route("/createNewAccount", name="createNewAccount")
      */
     public function createNewAccount(DatabaseService $database) {

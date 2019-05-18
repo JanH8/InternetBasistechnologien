@@ -27,7 +27,10 @@
                     {% else %}
                         <div class="msg-rec">
                     {% endif %}
-                   {{ message.contend }}<hr> {{message.tstmp}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }}</div>
+                 {{ message.contend }}
+                            <hr>
+                            <span class="metadata-msg"> {{message.tstmp}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }}</span>
+                        </div>
             {% endfor %}
       <div class="msg-spacer"></div>
 </div>

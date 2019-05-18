@@ -1,26 +1,26 @@
 let shownav = false;
+let btn = document.getElementById("navbtn");
+let bar = document.getElementById("navbar");
+let lg = document.getElementById("btnlogo");
+//let blocker = document.getElementById("navblock");
 
 function togglenav() {
-    if (shownav){
-        document.getElementById("navc").style.left="50px";
-        document.getElementById("navbar").style.left="-100%";
-        document.getElementById("close").style.display="none";
-        document.getElementById("navc").style.backgroundColor="white";
-        document.getElementById("navbtn").style.color="blue";
-        document.getElementById("navc").style.borderColor="blue";
-        document.getElementById("navbtn").innerHTML="view_headline";
-        document.getElementById("close").style.opacity="0";
-
-
+    if(shownav){
+        btn.style.left="15px";
+        btn.style.border="2px solid blue";
+        btn.style.color="blue";
+        lg.innerHTML="reorder";
+        bar.style.left="-1000px";
+        //blocker.style.left="-10000px";
         shownav = false;
-    } else{
-        document.getElementById("navc").style.left="500px";
-        document.getElementById("navbar").style.left="0";
-        document.getElementById("close").style.display="block";
-        document.getElementById("navbtn").style.color="red";
-        document.getElementById("navc").style.borderColor="red";
-        document.getElementById("navbtn").innerHTML="clear";
-        document.getElementById("close").style.opacity="0.4";
+    }
+    else{
+        btn.style.left="80%";
+        btn.style.border="2px solid red";
+        btn.style.color="red";
+        lg.innerHTML="clear";
+        bar.style.left="0";
+        //blocker.style.left="0";
         shownav = true;
     }
 }

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" id="body">
+<head>
+    <meta charset="UTF-8">
+    <title>Studyboard | Forum</title>
+
+    <!--Head-->
+    <link href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/div.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/text.css" rel="stylesheet" type="text/css"/>
+    <!--Foot-->
+    <link href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/foren/general.css" rel="stylesheet" type="text/css"/>
+    <!--Navbar-->
+    <link href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/nav.css" rel="stylesheet" type="text/css"/>
+    <!--Tabbar-->
+    <link href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/foren/forum-select/forum-select.css" rel="stylesheet" type="text/css"/>
+    <!--TabContent-->
+    <link href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/foren/forum-message/forum-message.css" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/logout/logout-popup.css"/>
+    <!--Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+
+<body>
+<div class="headwrap">
+    <a href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/index.html">
+        <div class="head">
+            <img id="logo" src="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/media/studyboard_logo.png">
+            <h1 class="h">Foren</h1>
+        </div>
+    </a>
+    <!--End of head-->
+
+
+    <div class="tabbar" id="tabbar">
+        <button class="tab space">spa</button>
+        <!--First button is spacing-->
+        <button class="tab" onclick="showdummy(event, 'forum1')">Forum 1</button>
+        <button class="tab" onclick="showdummy(event, 'forum2')">Forum 2</button>
+        <button class="tab" onclick="showdummy(event, 'forum3')">Forum 3</button>
+        <button class="tab" onclick="showdummy(event, 'forum4')">Forum 4</button>
+        <button class="tab" onclick="showdummy(event, 'forum5')">Forum 5 hat einen Namen, der länger ist als alles, dass wir je benutzen werden</button>
+        <button class="tab" onclick="showdummy(event, 'forum6')">Forum 6</button>
+        <button class="tab" onclick="showdummy(event, 'forum7')">Forum 7</button>
+        <button class="tab" onclick="showdummy(event, 'forum8')">Forum 8 hat auch einen Namen, der länger ist als alles, dass wir je benutzen werden</button>
+        <button class="tab" onclick="showdummy(event, '')" id="closeforum">Close</button>
+        <!--Last button is spacing-->
+        <button class="tab space" onclick="null">Content</button>
+    </div>
+</div>
+<button class="scrollbutton" onclick="scrollt('forw')"><i class="material-icons">keyboard_arrow_right</i></button>
+<button class="scrollbutton" onclick="scrollt()" id="scrollback"><i class="material-icons">keyboard_arrow_left</i></button>
+<!--End of Tabs / Header in General-->
+
+<div id="navbar">
+    <img src="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/media/studyboard_logo.png" id="barlogo">
+    <div id="space"></div>
+    <a href="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/index.html"><i class="material-icons">home</i> Home</a>
+    <a href="foren.html"><i class="material-icons">announcement</i>Foren</a>
+    <a href="#account"><i class="material-icons">face</i>Freund</a>
+    <a href="#settings"><i class="material-icons">settings</i>Settings</a>
+    <a href="#logout" id="navlogout" onclick="togglelogoutalert()"><i class="material-icons">power_settings_new</i>Logout</a>
+</div>
+<button id="navbtn" onclick="togglenav()"><i class="material-icons" id="btnlogo">reorder</i> </button>
+<div id="navblock" onclick="togglenav()"></div>
+<!--End of Nav-->
+
+<div class="content-msg" id="forum1">
+    <div>Nachrichten von Forum 1</div>
+    <div class="msg-sent">Hallo, hier ist eine wichtige Nachricht, welche von Leon gesendet worden ist!</div>
+    <div class="msg-rec">Hallo, was geht!</div>
+    <div class="msg-sent">Jo?</div>
+    <div class="msg-rec">Hallo, was geht!</div>
+    <div class="msg-rec">1, was geht! <div class="metadiv">Absender</div></div>
+    <div class="msg-rec">2, was geht!</div>
+    <div class="msg-rec">3, was geht!</div>
+    <div class="msg-rec">4, was geht!</div>
+    <div class="msg-rec">5, was geht!</div>
+    <div class="msg-rec">6, was geht!</div>
+    <div class="msg-rec">1, was geht!</div>
+    <div class="msg-rec">2, was geht!</div>
+    <div class="msg-rec">3, was geht!</div>
+    <div class="msg-rec">4, was geht!</div>
+    <div class="msg-rec">5, was geht!</div>
+    <div class="msg-rec">6, was geht!</div>
+    <div class="msg-spacer"></div>
+</div>
+<div class="content-msg" id="forum2"><div>Second Content</div></div>
+<div class="content-msg" id="forum3"><div>Third Content</div></div>
+<!--End of Tabcontent-->
+<div class="forum-foot" id="inputfield">
+    <div class="block"></div>
+    <form>
+        <input id="chatin" placeholder="Hier Nachricht eingeben!" type="text">
+        <button id="submit" type="submit" value="submit">
+            <i class="material-icons">send</i>
+        </button>
+        <button id="hideinput" onclick="toggleinput(true)" type="button">
+            <i class="material-icons">keyboard_arrow_down</i>
+        </button>
+    </form>
+</div>
+<button id="showinput" onclick="toggleinput(false)" type="button">
+    <i class="material-icons">keyboard_arrow_up</i>
+</button>
+<!--End of foot-->
+
+<!--Logout-Popup-->
+<div class="bblock" id="dblock" style="float: top">
+    <h1>Wirklich ausloggen?</h1>
+    <div class="popup">
+        <a href="#logout" id="logoutbtn" onclick="backtologin()">Logout</a>
+        <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
+    </div>
+</div>
+
+
+<script src="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/foren/hide_input.js"></script>
+<script src="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/global/navbar.js"></script>
+<script src="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/global/logout/logout.js"></script>
+<script src="../script/global/logout/refer.js"></script>
+<script src="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/foren/dummycontent.js"></script>
+<script src="../../../../../../studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/foren/scroll-tabs.js"></script>
+</body>
+</html>
+
