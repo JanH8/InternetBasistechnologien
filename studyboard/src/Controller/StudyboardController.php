@@ -49,6 +49,17 @@ class StudyboardController extends AbstractController {
             return $this->redirect('/' . $username);
         }
     }
+    
+    /**
+     * @Route("/deletePost/{forumName}/{postId}", name="deletePost")
+     */
+    public function deletePost($postId,$forumName, Session $session, DatabaseService $database) {
+        $currentUser = $session->get('userName');
+        if($database->getPostById($postId)){
+            $database->deletePostById($postId);
+        }
+        return $this->redirect("/forumTable/".$forumName);
+    }
 
     /**
      * @Route("/newAccount", name="newAccount")
