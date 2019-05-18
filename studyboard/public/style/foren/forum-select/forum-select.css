@@ -48,3 +48,50 @@ button.tab.active{
     background-color: #3858ff;
     color: white;
 }
+.scrollbutton{
+    position: absolute;
+    z-index: 16;
+    right: 0;
+    top: 88px;
+    height: 72px;
+    width: 75px;
+    border: 1px solid blue;
+    text-align: center;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: -5px 0 5px gray;
+    background-color: blue;
+    color: white;
+    transition: background-color .2s, color .2s;
+}
+.scrollbutton:hover{
+    background-color: white;
+    color: blue;
+}
+.tab.space{
+    opacity: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    overflow: hidden;
+}
+.tab.space:hover{
+
+}
+#scrollback{
+    left: 0;
+    border-radius: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 5px 0 5px gray;
+}
+#closeforum{
+    color: red;
+    border: 1px solid red;
+    width: 100px;
+}
+#closeforum:hover{
+    background-color: red;
+    color: white;
+}

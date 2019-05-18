@@ -8,27 +8,25 @@
 <link href="/style/global/nav.css" rel="stylesheet" type="text/css"/>
 
 <!--End of Head-->
-<div class="navbtn" id="navc" onclick="togglenav()">
-    <i class="material-icons" id="navbtn">view_headline</i>
-</div>
 
-<div class="navbar" id="navbar">
-    <img id="navbarlogo" src="/media/studyboard_logo.png">
-    <a class="active" href="/home">Home</a>
-    <a href="/forum">Foren</a>
-    <a href="#settings">Einstellungen</a>
-    <a href="/createNewForum">Neues Forum</a>
-    <a href="#Impressum">Impressum</a>
-    <a href="#logout" onclick="togglelogoutalert()">Abmelden</a>
-</div>
-<div id="close" onclick="togglenav()"></div>
-<!--End -->
 
-<!--Logout-Popup-->
-<div class="bblock" id="dblock">
+<div id="navbar">
+    <img src="../media/studyboard_logo.png" id="barlogo">
+    <div id="space"></div>
+    <a href="/home"><i class="material-icons">home</i> Home</a>
+    <a href="/forum"><i class="material-icons">announcement</i>Foren</a>
+    <a href="/createNewForum"><i class="material-icons">create</i>Neues Forum</a>
+    <a href="#settings"><i class="material-icons">settings</i>Settings</a>
+    <a href="/impressum"><i class="material-icons">info</i>Impressum</a>
+    <a href="#logout" id="navlogout" onclick="togglelogoutalert()"><i class="material-icons">power_settings_new</i>Logout</a>
+</div>
+<button id="navbtn" onclick="togglenav()"><i class="material-icons" id="btnlogo">reorder</i> </button>
+<!--End of Nav-->
+
+<div class="bblock" id="dblock" style="float: top">
     <h1>Wirklich ausloggen?</h1>
     <div class="popup">
-        <a href="/logout" id="logoutbtn" >Logout</a>
+        <a href="#logout" id="logoutbtn" onclick="backtologin()">Logout</a>
         <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
     </div>
 </div>

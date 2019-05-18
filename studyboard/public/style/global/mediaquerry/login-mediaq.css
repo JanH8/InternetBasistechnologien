@@ -1,0 +1,26 @@
+@media screen and (max-width: 700px){
+    .loginhead{
+    }
+    form{
+        width: 90%;
+        margin-left: 15px;
+    }
+    input{
+        width: 90%;
+        height: 40px;
+    }
+
+    #submit{
+        width: 80%;
+        height: 50px;
+    }
+    input:focus{
+        width: 91%;
+    }
+    .contact_box p{
+        padding-left: 20%;
+    }
+    .navigatorcont h1{
+        font-size: 90px;
+    }
+}

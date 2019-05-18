@@ -1,5 +1,4 @@
 h1.h{
-    padding-top: 0;
     position: relative;
     text-align: right;
     top: 5px;
@@ -15,4 +14,13 @@ p.content{
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: black;
+}
+
+
+h2{
+    font-family: 'Roboto', sans-serif;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
 }

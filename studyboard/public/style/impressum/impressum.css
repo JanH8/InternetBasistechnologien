@@ -1,0 +1,50 @@
+@keyframes fadein {
+    from{top: -200px}
+    from{opacity: .1}
+    to{top: 115px}
+    to{opacity: 1}
+}
+
+#impressumhead{
+    position: fixed;
+    padding: 0;
+}
+
+.impressum{
+    padding: 15px 30px 15px 30px;
+    text-align: left;
+    box-shadow: 15px 15px 30px gray;
+    position: relative;
+    top: 115px;
+    left: 0;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    animation-name: fadein;
+    animation-duration: 2s;
+    overflow: scroll;
+}
+button.impback{
+    color: blue;
+    text-decoration: none;
+    outline: none;
+    position: fixed;
+    bottom: 1%;
+    left: 1%;
+    display: block;
+    width: 60px;
+    padding-top: 5px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: white;
+    border: 2px solid blue;
+    font-size: 25px;
+    transition: background-color .5s, color .5s, box-shadow 1s;
+}
+button.impback:hover{
+
+    background-color: blue;
+    color: white;
+    box-shadow: -5px -5px 15px gray;
+}
