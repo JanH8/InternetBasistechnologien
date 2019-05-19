@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Benutzereinstellungen</title>
+        <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
+    </head>
+    <body>
+        <div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
+        <div class="navigatorcont">
+            <table>
+                <tr>
+                <form method="post" action="/updateColor">
+                    <label for="Farbe"></label>
+                    <input type="color" name="color" id="color" value="{{ user.color }}" required>
+                    <input type="submit" value="Submit" id="submit"/>
+                </form>
+                </tr>
+                <tr>
+                <form method="post" action="/updatePassword">
+                    <input type="Password" name="oldPassword" id="Password" placeholder="Altes Passwort" pattern=".{6,}" required/>
+                    <input type="Password" name="newPassword" id="Password" placeholder="Neues Passwort" pattern=".{6,}" required/>
+                    <input type="Password" name="oldPassword" id="Password" placeholder="Wiederholung" pattern=".{6,}" required/>
+                    <input type="submit" value="Submit" id="submit"/>
+                </form>
+                </tr>
+            </table>
+        </div>
+        <script src=""></script>
+    </body>
+</html>
