@@ -91,6 +91,49 @@ class StudyboardController extends AbstractController {
     }
 
     /**
+     * @Route("/changeColor", name="changeColor")
+     */
+    public function changeColor(DatabaseService $database) {
+        $session = $this->startSession();
+        $userId = $session->get('userId');
+        if ($database->changeColor($userId)) {
+            $this->addFlash('fb', 'Account wurde erstellt!');
+        } else {
+            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+        }
+        return $this->redirect('/home');
+    }
+
+    /**
+     * @Route("/changeEmail", name="changeEmail")
+     */
+    public function changeEmail(DatabaseService $database) {
+        $session = $this->startSession();
+        $userId = $session->get('userId');
+        if ($database->changeEmail($userId)) {
+            $this->addFlash('fb', 'Account wurde erstellt!');
+        } else {
+            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+        }
+        return $this->redirect('/home');
+    }
+
+    /**
+     * @Route("/changePassword", name="/changePassword")
+     */
+    public function changePassword(DatabaseService $database) {
+        $session = $this->startSession();
+        $userId = $session->get('userId');
+        $oldPW = (key_exists('color', $_POST)) ? filter_var($_POST['color'], FILTER_SANITIZE_SPECIAL_CHARS) : '#ffffff';
+        if ($database->changePassword($userId)) {
+            $this->addFlash('fb', 'Account wurde erstellt!');
+        } else {
+            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+        }
+        return $this->redirect('/');
+    }
+
+    /**
      * @Route("/createNewAccount", name="createNewAccount")
      */
     public function createNewAccount(DatabaseService $database) {

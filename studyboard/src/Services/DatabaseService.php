@@ -6,18 +6,21 @@ use Doctrine\DBAL\Connection;
 use Exception;
 use PDO;
 
-class DatabaseService {
+class DatabaseService
+{
 
     protected $pdo;
 
-    public function __construct(Connection $pdo) {
+    public function __construct(Connection $pdo)
+    {
         $this->pdo = $pdo;
     }
 
-    public function getAllForums() {
+    public function getAllForums()
+    {
         $nameArray = [];
         $query = "SELECT forumName FROM forum "
-                . "ORDER BY forumId DESC";
+            . "ORDER BY forumId DESC";
         $stm = $this->pdo->prepare($query);
         if ($stm && $stm->execute() && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
             foreach ($result as $dataset) {
@@ -27,13 +30,14 @@ class DatabaseService {
         return $nameArray;
     }
 
-    public function getMessagesByForum($forumName) {
+    public function getMessagesByForum($forumName)
+    {
         $messagesArray = [];
         $query = "SELECT * FROM post "
-                . "INNER JOIN forum on post.forumId = forum.forumId "
-                . "INNER JOIN student on post.author = student.studentId "
-                . "WHERE forumName=:name "
-                . "ORDER BY post.postId";
+            . "INNER JOIN forum on post.forumId = forum.forumId "
+            . "INNER JOIN student on post.author = student.studentId "
+            . "WHERE forumName=:name "
+            . "ORDER BY post.postId";
 
         $stm = $this->pdo->prepare($query);
         if ($stm && $stm->execute([':name' => $forumName]) && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
@@ -42,7 +46,8 @@ class DatabaseService {
         return $messagesArray;
     }
 
-    public function userLogin() {
+    public function userLogin()
+    {
         $username = $_POST['name'];
         $password = $_POST['password'];
         $result = $this->getUserByName($username);
@@ -53,7 +58,8 @@ class DatabaseService {
         }
     }
 
-    public function createNewAccount($name, $email, $password, $color) {
+    public function createNewAccount($name, $email, $password, $color)
+    {
         try {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $query = 'INSERT INTO student (studentName, password, email, color, status) VALUES(:name, :password, :email ,:color, 0)';
@@ -75,7 +81,76 @@ class DatabaseService {
         }
     }
 
-    public function getCreatorByForumId($forumId) {
+    public function updateEmail($userID, $email)
+    {
+        try {
+            $query = 'UPDATE student SET email =:email WHERE studentId = :id';
+
+            $stm = $this->pdo->prepare($query);
+            if ($userID && $stm && $stm->execute([':email' => $email, ':id' => $userID])) {
+                return true;
+            } else {
+                throw new Exception('Anmeldung fehlgeschlagen!');
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function changeEmail($userID)
+    {
+        $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
+        return $this->updateEmail($userID, $email);
+    }
+
+    public function updatePassword($userID, $password)
+    {
+        try {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $query = 'UPDATE student SET password =:password WHERE studentId = :id';
+
+            $stm = $this->pdo->prepare($query);
+            if ($userID && $stm && $stm->execute([':password' => $hashedPassword, ':id' => $userID])) {
+                return true;
+            } else {
+                throw new Exception('Anmeldung fehlgeschlagen!');
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function changePassword($userID)
+    {
+        $password = (key_exists('newPassword', $_POST)) ? filter_var($_POST['newPassword'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
+        return $this->updatePassword($userID, $password);
+    }
+
+    public function updateColor($userID, $color)
+    {
+        try {
+            $query = 'UPDATE student SET color =:color WHERE studentId = :id';
+
+            $stm = $this->pdo->prepare($query);
+            if ($userID && $this->isHexColor($color) && $stm && $stm->execute([':color' => $color, ':id' => $userID])) {
+                return true;
+            } else {
+                throw new Exception('Anmeldung fehlgeschlagen!');
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+
+    public function changeColor($userID)
+    {
+        $color = (key_exists('color', $_POST)) ? filter_var($_POST['color'], FILTER_SANITIZE_SPECIAL_CHARS) : '#ffffff';
+        return $this->updateColor($userID, $color);
+    }
+
+    public function getCreatorByForumId($forumId)
+    {
         $queryForId = "SELECT * FROM forum INNER JOIN student on forum.creator = student.studentId WHERE forumId=:id";
         $stm = $this->pdo->prepare($queryForId);
         if ($stm && $stm->execute([':id' => $forumId]) && $result = $stm->fetch(PDO::FETCH_ASSOC)) {
@@ -84,7 +159,8 @@ class DatabaseService {
         return null;
     }
 
-    public function registerNewAccount() {
+    public function registerNewAccount()
+    {
         $name = (key_exists('name', $_POST)) ? filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
         $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
         $password = (key_exists('password', $_POST)) ? filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
@@ -92,7 +168,8 @@ class DatabaseService {
         return $this->createNewAccount($name, $email, $password, $color);
     }
 
-    public function getUserByName($name) {
+    public function getUserByName($name)
+    {
         $query = 'SELECT * FROM student WHERE studentName=:name';
         $stm = $this->pdo->prepare($query);
         if ($stm && $stm->execute([':name' => $name])) {
@@ -102,15 +179,17 @@ class DatabaseService {
         }
     }
 
-    public function isHexColor($color) {
+    public function isHexColor($color)
+    {
         return preg_match('/^#[0-9A-Fa-f]{6}$/', $color);
     }
 
-    public function createNewForum($forumName, $userId) {
+    public function createNewForum($forumName, $userId)
+    {
         $forumNameLength = strlen($forumName);
         $forumId = $this->getForumIdByName($forumName);
         $query = 'INSERT INTO forum (creator, forumName) '
-                . 'VALUES (:creator, :forumName)';
+            . 'VALUES (:creator, :forumName)';
         $valueArray = [
             ':creator' => $userId,
             ':forumName' => $forumName
@@ -123,10 +202,11 @@ class DatabaseService {
         }
     }
 
-    public function makeNewEntry($forum, $message, $userId) {
+    public function makeNewEntry($forum, $message, $userId)
+    {
         $forumId = $this->getForumIdByName($forum);
         $query = 'INSERT INTO post (tstmp, author, forumId, contend) '
-                . 'VALUES (:tstmp, :author, :forumId, :content)';
+            . 'VALUES (:tstmp, :author, :forumId, :content)';
         $valueArray = [
             ':tstmp' => time(),
             ':author' => $userId,
@@ -141,7 +221,8 @@ class DatabaseService {
         }
     }
 
-    public function getForumIdByName($name) {
+    public function getForumIdByName($name)
+    {
         $query = "SELECT forumId FROM forum WHERE forumName=:name";
         $stm = $this->pdo->prepare($query);
         $valueArray = [':name' => $name];
@@ -153,7 +234,8 @@ class DatabaseService {
         }
     }
 
-    public function getPostById($id) {
+    public function getPostById($id)
+    {
         $query = "SELECT * FROM post INNER JOIN student on student.studentId = post.author WHERE postId=:id ";
         $stm = $this->pdo->prepare($query);
         $valueArray = [':id' => $id];
@@ -165,7 +247,8 @@ class DatabaseService {
         }
     }
 
-    public function deletePostById($id) {
+    public function deletePostById($id)
+    {
         $query = 'DELETE FROM post WHERE postId=:id';
         $stm = $this->pdo->prepare($query);
         $valueArray = [':id' => $id];
