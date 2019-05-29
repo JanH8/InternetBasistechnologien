@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Erstelle ein neues Forum</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/login/login_cont.css"/>
+</head>
+<body>
+<div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
+<div class="navigatorcont">
+    <h1 class="loginhead">Erstelle ein neues Forum</h1>
+    <form method="post" action="/createNewForum">
+        <label for="Username"></label>
+        <input type="text" name="forumName" id="Forumname" placeholder="Name des Forums" required>
+        <input type="submit" value="Erstellen" id="submit"/>
+    </form>
+</div>
+    {% include 'sideMenue.html.twig' %}
+</body>
+</html>

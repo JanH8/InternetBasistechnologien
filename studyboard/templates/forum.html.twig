@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Studyboard | Forum</title>
+        <link href="/style/index/image_gal.css" rel="stylesheet" type="text/css"/>
+
+        <!--Head-->
+        <link href="/style/global/div.css" rel="stylesheet" type="text/css"/>
+        <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
+        <!--Foot-->
+        <link href="/style/foren/general.css" rel="stylesheet" type="text/css"/>
+        <!--Tabbar-->
+        <link href="/style/foren/forum-select/forum-select.css" rel="stylesheet" type="text/css"/>
+        <!--TabContent-->
+        <link href="/style/foren/forum-message/forum-message.css" rel="stylesheet" type="text/css"/>
+        <!--Material icons-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <div class="content-msg">  
+            {% for message in messages %}
+
+                {% if user == message.studentName %}
+                    <div class="msg-sent">
+                    {% else %}
+                        <div class="msg-rec">
+                        {% endif %}
+                        {{ message.contend }}
+                        <hr>
+                        <span class="metadata-msg"> {{message.tstmp|date("d.m.Y H:i", "Europe/Paris")}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }}
+                            {% if user == message.studentName %}
+                                | <a href="/deletePost/{{ message.forumName }}/{{ message.postId }}">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            {% endif %}
+                        </span>
+                    </div>
+                {% endfor %}
+                <div class="msg-spacer"></div>
+            </div>
+    </body>
+</html>

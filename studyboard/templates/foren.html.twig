@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Studyboard | Forum</title>
+
+    <!--Head-->
+    <link href="/style/global/div.css" rel="stylesheet" type="text/css"/>
+    <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
+    <!--Foot-->
+    <link href="/style/foren/general.css" rel="stylesheet" type="text/css"/>
+    <!--Tabbar-->
+    <link href="/style/foren/forum-select/forum-select.css" rel="stylesheet" type="text/css"/>
+    <!--TabContent-->
+    <link href="/style/foren/forum-message/forum-message.css" rel="stylesheet" type="text/css"/>
+    <!--Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<div class="headwrap">
+    <div class="head">
+        <img id="logo" src="/media/studyboard_logo.png">
+        <h1 class="h">Foren</h1>
+    </div>
+    <!--End of head-->
+    <div class="tabbar" id="tabbar">
+        <button class="tab space">spa</button>
+        <!--First button is spacing-->
+        {% for forum in forums %}
+            <button class="tab {% if forum == currentForum %}active{% endif %}"
+                    onclick="changeCurrentForum(event, '{{ forum }}')">{{ forum }}</button>
+        {% endfor %}
+        <!--Last button is spacing-->
+        <button class="tab space" onclick="null">Content</button>
+
+    </div>
+</div>
+<button class="scrollbutton" onclick="scrollt('forw')"><i class="material-icons">keyboard_arrow_right</i></button>
+<button class="scrollbutton" onclick="scrollt()" id="scrollback"><i class="material-icons">keyboard_arrow_left</i>
+</button>
+<!--End of Tabs / Header in General-->
+<div class="content-container" id="{{ currentForum }}">
+    <iframe class="forum-iframe" id="forumIframe"
+            src="/forumTable/{% if currentForum %}{{ currentForum }}{% endif %}"></iframe>
+</div>
+
+<!--End of Tabcontent-->
+<div class="forum-foot" id="inputfield">
+    <div class="block"></div>
+    <form>
+        <input id="chatin" placeholder="Hier Nachricht eingeben!" type="text">
+        <button id="submit" type="submit" value="submit" onclick="sendPostToForum()">
+            <i class="material-icons">send</i>
+        </button>
+        <button id="hideinput" onclick="toggleinput(true)" type="button">
+            <i class="material-icons">keyboard_arrow_down</i>
+        </button>
+    </form>
+</div>
+<button id="showinput" onclick="toggleinput(false)" type="button">
+    <i class="material-icons">keyboard_arrow_up</i>
+</button>
+<!--End of foot-->
+
+{% include 'sideMenue.html.twig' %}
+
+
+<script src="/script/foren/hide_input.js"></script>
+<script src="/script/foren/foren_action.js"></script>
+<script src="/script/foren/scroll-tabs.js"></script>
+</body>
+</html>

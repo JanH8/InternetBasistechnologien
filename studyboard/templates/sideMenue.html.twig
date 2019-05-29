@@ -1,0 +1,35 @@
+<link href="/style/global/mediaquerry/global-mediaq.css" rel="stylesheet" type="text/css"/>
+<!--Material icons-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+<link href="/style/global/logout/logout-popup.css" rel="stylesheet" type="text/css"/>
+<link href="/style/global/nav.css" rel="stylesheet" type="text/css"/>
+
+<!--End of Head-->
+
+
+<div id="navbar">
+    <img src="../media/studyboard_logo.png" id="barlogo">
+    <div id="space"></div>
+    <a href="/home"><i class="material-icons">home</i> Home</a>
+    <a href="/forum"><i class="material-icons">announcement</i>Foren</a>
+    <a href="/createNewForum"><i class="material-icons">create</i>Neues Forum</a>
+    <a href="#settings"><i class="material-icons">settings</i>Settings</a>
+    <a href="/impressum"><i class="material-icons">info</i>Impressum</a>
+    <a href="#logout" id="navlogout" onclick="togglelogoutalert()"><i class="material-icons">power_settings_new</i>Logout</a>
+</div>
+<button id="navbtn" onclick="togglenav()"><i class="material-icons" id="btnlogo">reorder</i> </button>
+<!--End of Nav-->
+
+<div class="bblock" id="dblock" style="float: top">
+    <h1>Wirklich ausloggen?</h1>
+    <div class="popup">
+        <a href="#logout" id="logoutbtn" onclick="backtologin()">Logout</a>
+        <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
+    </div>
+</div>
+
+<script src="/script/global/navbar.js"></script>
+<script src="/script/global/logout/logout.js"></script>

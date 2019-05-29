@@ -1,0 +1,10 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+table{
+    width: 100%;
+}
+td{
+    width:50%;
+}
