@@ -17,8 +17,7 @@ class StudyboardController extends AbstractController {
     public function __construct(Connection $conection) {
         try {
             $this->PDO = $conection;
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
@@ -36,29 +35,27 @@ class StudyboardController extends AbstractController {
     public function loginValidation() {
         try {
             $databaseService = new DatabaseService($this->PDO);
-            $userdata        = $databaseService->userLogin();
+            $userdata = $databaseService->userLogin();
             if ($this->createNewSession($userdata)) {
                 return $this->redirect('/home');
-            }
-            else {
+            } else {
                 throw new Exception('Anmeldung gescheitert');
             }
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             $username = (key_exists('name', $_POST)) ? '?name=' . filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
             return $this->redirect('/' . $username);
         }
     }
-    
+
     /**
      * @Route("/deletePost/{forumName}/{postId}", name="deletePost")
      */
-    public function deletePost($postId,$forumName, Session $session, DatabaseService $database) {
+    public function deletePost($postId, $forumName, Session $session, DatabaseService $database) {
         $currentUser = $session->get('userName');
-        if($database->getPostById($postId)){
+        if ($database->getPostById($postId)) {
             $database->deletePostById($postId);
         }
-        return $this->redirect("/forumTable/".$forumName);
+        return $this->redirect("/forumTable/" . $forumName);
     }
 
     /**
@@ -69,10 +66,71 @@ class StudyboardController extends AbstractController {
     }
 
     /**
-     * @Route("/impressum", name="newAccount")
+     * @Route("/settings", name="settings")
+     */
+    public function settings(DatabaseService $database) {
+        $session = $this->startSession();
+        $username = $session->get("userName");
+        if ($this->userIsLoggedIn($session)) {
+            $user = $database->getUserByName($username);
+            $twigArray = [
+                'user' => $user,
+            ];
+            return $this->render('settings.html.twig', $twigArray);
+        } else {
+            $this->userLogout($session);
+            return $this->redirect("/");
+        }
+    }
+
+    /**
+     * @Route("/impressum", name="impressum")
      */
     public function impressum() {
         return $this->render('impressum.html.twig');
+    }
+
+    /**
+     * @Route("/changeColor", name="changeColor")
+     */
+    public function changeColor(DatabaseService $database) {
+        $session = $this->startSession();
+        $userId = $session->get('userId');
+        if ($database->changeColor($userId)) {
+            $this->addFlash('fb', 'Account wurde erstellt!');
+        } else {
+            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+        }
+        return $this->redirect('/home');
+    }
+
+    /**
+     * @Route("/changeEmail", name="changeEmail")
+     */
+    public function changeEmail(DatabaseService $database) {
+        $session = $this->startSession();
+        $userId = $session->get('userId');
+        if ($database->changeEmail($userId)) {
+            $this->addFlash('fb', 'Account wurde erstellt!');
+        } else {
+            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+        }
+        return $this->redirect('/home');
+    }
+
+    /**
+     * @Route("/changePassword", name="/changePassword")
+     */
+    public function changePassword(DatabaseService $database) {
+        $session = $this->startSession();
+        $userId = $session->get('userId');
+        $oldPW = (key_exists('color', $_POST)) ? filter_var($_POST['color'], FILTER_SANITIZE_SPECIAL_CHARS) : '#ffffff';
+        if ($database->changePassword($userId)) {
+            $this->addFlash('fb', 'Account wurde erstellt!');
+        } else {
+            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+        }
+        return $this->redirect('/');
     }
 
     /**
@@ -81,8 +139,7 @@ class StudyboardController extends AbstractController {
     public function createNewAccount(DatabaseService $database) {
         if ($database->registerNewAccount()) {
             $this->addFlash('fb', 'Account wurde erstellt!');
-        }
-        else {
+        } else {
             $this->addFlash('er', 'Account konnte nicht erstellt werden!');
         }
         return $this->redirect('/');
@@ -100,13 +157,11 @@ class StudyboardController extends AbstractController {
     /**
      * @Route("/home", name="home")
      */
-
     public function home() {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             return $this->render('home.html.twig');
-        }
-        else {
+        } else {
             $this->userLogout($session);
             return $this->redirect("/");
         }
@@ -126,14 +181,13 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $currentUser = $session->get('userName');
-            $messages    = $database->getMessagesByForum($forumName);
-            $twigArray   = [
-                'user'     => $currentUser,
+            $messages = $database->getMessagesByForum($forumName);
+            $twigArray = [
+                'user' => $currentUser,
                 'messages' => $messages
             ];
             return $this->render("forum.html.twig", $twigArray);
-        }
-        else {
+        } else {
             
         }
     }
@@ -146,12 +200,11 @@ class StudyboardController extends AbstractController {
         if ($this->userIsLoggedIn($session)) {
             $forumlist = $database->getAllForums();
             $twigArray = [
-                'forums'       => $forumlist,
+                'forums' => $forumlist,
                 'currentForum' => '',
             ];
             return $this->render('foren.html.twig', $twigArray);
-        }
-        else {
+        } else {
             return $this->redirect("/");
         }
     }
@@ -163,14 +216,13 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $forumlist = $database->getAllForums();
-            $forumId   = $database->getForumIdByName($forumName);
+            $forumId = $database->getForumIdByName($forumName);
             $twigArray = [
-                'forums'       => $forumlist,
+                'forums' => $forumlist,
                 'currentForum' => $forumId ? $forumName : '',
             ];
             return $this->render("foren.html.twig", $twigArray);
-        }
-        else {
+        } else {
             return $this->redirect("/");
         }
     }
@@ -182,15 +234,14 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             if (key_exists('forumName', $_POST)) {
-                $userId    = $session->get('userId');
+                $userId = $session->get('userId');
                 $forumName = filter_var($_POST['forumName'], FILTER_SANITIZE_SPECIAL_CHARS);
                 if ($database->createNewForum($forumName, $userId)) {
-                    return $this->redirect('/forum/'.$forumName);
+                    return $this->redirect('/forum/' . $forumName);
                 }
             }
             return $this->render("newForum.html.twig");
-        }
-        else {
+        } else {
             return $this->redirect("/home");
         }
     }
@@ -207,12 +258,10 @@ class StudyboardController extends AbstractController {
             $userId = $session->get('userId');
             if ($database->makeNewEntry($forumName, $_POST['message'], $userId)) {
                 return new Response('', 200);
-            }
-            else {
+            } else {
                 return new Response('', 400);
             }
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             return new Response('', 403);
         }
     }
@@ -245,8 +294,7 @@ class StudyboardController extends AbstractController {
             $session->set('userColor', $userdata['color']);
             $session->set('userAdmin', (2 == $userdata['status']) ? true : false);
             return $session;
-        }
-        else {
+        } else {
             return false;
         }
     }

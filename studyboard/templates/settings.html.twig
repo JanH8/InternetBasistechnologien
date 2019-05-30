@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Benutzereinstellungen</title>
+    <!--Head-->
+    <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
+    <!--Foot-->
+    <link href="/style/foren/general.css" rel="stylesheet" type="text/css"/>
+
+    <!--Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
+</head>
+<body>
+{% include 'sideMenue.html.twig' %}
+<div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
+<div class="navigatorcont">
+    <h1>Hi {{ user.studentName }}!</h1>
+    <table>
+        <tr>
+            <td>Nutzername:</td>
+            <td>{{ user.studentName }}</td>
+
+        </tr>
+        <tr>
+            <td>E-Mail:</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <td>Rolle:</td>
+            {% if user.status == 1 %}
+                <td>Benutzer</td>
+            {% else %}
+                <td>Admninistrator</td>
+            {% endif %}
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <form method="post" action="/changeColor">
+                <label for="Farbe"></label>
+                <input type="color" name="color" id="color" value="{{ user.color }}" required>
+                <input type="submit" value="Submit" id="submit"/>
+            </form>
+        </tr>
+        <tr>
+            <form method="post" action="/changePassword">
+                <input type="Password" name="newPassword" id="Password" placeholder="Neues Passwort" pattern=".{6,}"
+                       required/>
+                <input type="submit" value="Submit" id="submit"/>
+            </form>
+        </tr>
+        <form method="post" action="/changeEmail">
+            <input type="email" name="email" id="email" placeholder="Neue E-Mail" required>
+            <input type="submit" value="Submit" id="submit"/>
+        </form>
+        </tr>
+    </table>
+</div>
+<script src=""></script>
+</body>
+</html>

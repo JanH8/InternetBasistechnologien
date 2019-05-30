@@ -2,29 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="424c8133-d395-4fce-892c-717b029d7fc3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/script/foren/scroll-tabs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/style/global/mediaquerry/index-mediaq.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/style/global/mediaquerry/login-mediaq.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/impressum.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/script/foren/dummycontent.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/script/foren/dummycontent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/script/global/logout/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/script/global/logout/logout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/script/global/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/script/global/navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/script/login/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/script/login/contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/foren/forum-message/forum-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/foren/forum-message/forum-message.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/foren/forum-select/forum-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/foren/forum-select/forum-select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/global/div.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/global/div.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/global/logout/logout-popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/global/logout/logout-popup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/global/mediaquerry/global-mediaq.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/global/mediaquerry/global-mediaq.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/global/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/global/nav.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/style/global/text.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/global/text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/login/login_cont.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/login/login_cont.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/StudyboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudyboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blank.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blank.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/foren.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/foren.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forum.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forum.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/DatabaseService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/DatabaseService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createNewUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createNewUser.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sideMenue.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sideMenue.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +18,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -50,119 +35,134 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="studyboard_db@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="studyboard_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="studyboard_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="studyboard_db: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="studyboard_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="studyboard_db: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="forum: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5217391">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/home.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="99" selection-start-line="5" selection-start-column="7" selection-end-line="10" selection-end-column="99" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/login.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/sideMenue.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/script/global/logout/logout.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Controller/StudyboardController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/impressum.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="739">
-                  <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/blank.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" selection-start-line="7" selection-end-line="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/login.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/impressum.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="33" selection-start-line="33" selection-end-line="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/script/global/navbar.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/style/global/text.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/login.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/StudyboardController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Services/DatabaseService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1846">
+              <caret line="205" column="5" lean-forward="true" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
+              <folding>
+                <element signature="e#32#61#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/settings.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://88f16b9f-8385-4544-bec0-25bc81084237/schema/studyboard_db/table/forum">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="c9c89fd5-605c-4ace-a7c9-cafe48e016b6">
+              <filtering>
+                <filter text="" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://88f16b9f-8385-4544-bec0-25bc81084237/schema/studyboard_db/table/post">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="c9c89fd5-605c-4ace-a7c9-cafe48e016b6">
+              <filtering>
+                <filter text="" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/foren.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="90" selection-start-line="6" selection-start-column="3" selection-end-line="16" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://88f16b9f-8385-4544-bec0-25bc81084237/schema/studyboard_db/table/student">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="c9c89fd5-605c-4ace-a7c9-cafe48e016b6">
+              <filtering>
+                <filter text="" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -178,7 +178,6 @@
         <option value="$PROJECT_DIR$/public/style/global/logout/logout-popup.css" />
         <option value="$PROJECT_DIR$/public/style/global/div.css" />
         <option value="$PROJECT_DIR$/public/style/global/nav.css" />
-        <option value="$PROJECT_DIR$/public/style/global/text.css" />
         <option value="$PROJECT_DIR$/public/style/global/mediaquerry/global-mediaq.css" />
         <option value="$PROJECT_DIR$/public/style/login/login.css" />
         <option value="$PROJECT_DIR$/public/style/login/login_cont.css" />
@@ -186,12 +185,17 @@
         <option value="$PROJECT_DIR$/templates/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/impressum.html.twig" />
         <option value="$PROJECT_DIR$/public/script/global/navbar.js" />
-        <option value="$PROJECT_DIR$/templates/home.html.twig" />
-        <option value="$PROJECT_DIR$/templates/sideMenue.html.twig" />
         <option value="$PROJECT_DIR$/public/script/global/logout/logout.js" />
-        <option value="$PROJECT_DIR$/src/Controller/StudyboardController.php" />
         <option value="$PROJECT_DIR$/templates/login.html.twig" />
         <option value="$PROJECT_DIR$/templates/blank.html.twig" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/templates/home.html.twig" />
+        <option value="$PROJECT_DIR$/templates/sideMenue.html.twig" />
+        <option value="$PROJECT_DIR$/src/Services/DatabaseService.php" />
+        <option value="$PROJECT_DIR$/src/Controller/StudyboardController.php" />
+        <option value="$PROJECT_DIR$/templates/createNewUser.html.twig" />
+        <option value="$PROJECT_DIR$/public/style/global/text.css" />
+        <option value="$PROJECT_DIR$/templates/settings.html.twig" />
       </list>
     </option>
   </component>
@@ -300,21 +304,11 @@
       <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
     </include_path>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/studyboard.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="188" />
-    <option name="y" value="-17" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="446" />
+    <option name="y" value="-8" />
+    <option name="width" value="933" />
+    <option name="height" value="946" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -333,6 +327,11 @@
             <path>
               <item name="studyboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="studyboard" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyboard" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -353,13 +352,31 @@
               <item name="studyboard" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyboard" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyboard" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
               <item name="global" type="462c0819:PsiDirectoryNode" />
-              <item name="logout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="studyboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="studyboard" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyboard" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="studyboard" type="b2602c69:ProjectViewProjectNode" />
@@ -373,7 +390,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -408,17 +428,17 @@
       <option name="presentableId" value="Default" />
       <updated>1558194007047</updated>
       <workItem from="1558194008774" duration="4472000" />
+      <workItem from="1559057908450" duration="11394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4517000" />
+    <option name="totallyTimeSpent" value="15911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12953092" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13059701" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -428,16 +448,16 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Console" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.552546" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.18336888" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.22761194" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12953092" />
@@ -466,68 +486,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/forum.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="58" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/style/foren/forum-message/forum-message.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/studyboard_v0.1.0b/page/fds">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/foren/forum-select/forum-select.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="83" column="15" lean-forward="true" selection-end-line="96" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/style/foren/forum-select/forum-select.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/foren/forum-message/forum-message.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400" />
-      </provider>
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/foren/general.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/script/foren/foren_action.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/script/foren/scroll-tabs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/foren/hide_input.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/script/foren/hide_input.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/foren/dummycontent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -549,20 +507,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/foren.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/logout/logout-popup.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="40" column="13" selection-end-line="69" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/logout/logout-popup.css" />
     <entry file="file://$PROJECT_DIR$/public/style/global/logout/logout-popup.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -570,13 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/div.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="17" lean-forward="true" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/div.css" />
     <entry file="file://$PROJECT_DIR$/public/style/global/div.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -584,34 +523,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/nav.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="23" selection-end-line="129" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/text.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="2" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/style/global/text.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/mediaquerry/global-mediaq.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/nav.css" />
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/text.css" />
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/global/mediaquerry/global-mediaq.css" />
     <entry file="file://$PROJECT_DIR$/public/style/global/mediaquerry/global-mediaq.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -626,20 +540,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/login/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="16" lean-forward="true" selection-end-line="101" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/login/login_cont.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="33" lean-forward="true" selection-end-line="52" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/login/login.css" />
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/style/login/login_cont.css" />
     <entry file="file://$PROJECT_DIR$/public/style/login/login_cont.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
@@ -668,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/script/login/contact.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/script/login/dummylogin.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -692,9 +587,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html.twig" />
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -708,24 +601,34 @@
     <entry file="file://$PROJECT_DIR$/templates/logout.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/login.html">
+    <entry file="file://$PROJECT_DIR$/templates/impressum.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="1241">
+          <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/impressum.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
+        <state relative-caret-position="561">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/index.html">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/88f16b9f-8385-4544-bec0-25bc81084237/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blank.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/studyboard_db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -736,10 +639,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/impressum.html.twig">
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+        <state relative-caret-position="65">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/studyboard/InternetBasistechnologien/studyboard_v0.1.0b/page/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/script/login/contact.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -752,15 +679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/sideMenue.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="34">
+          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -771,17 +691,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/StudyboardController.php">
+    <entry file="file://$PROJECT_DIR$/templates/createNewUser.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
+        <state relative-caret-position="153">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blank.html.twig">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="442">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/style/global/text.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/StudyboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/settings.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/foren.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="90" selection-start-line="6" selection-start-column="3" selection-end-line="16" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://88f16b9f-8385-4544-bec0-25bc81084237/schema/studyboard_db/table/post">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="c9c89fd5-605c-4ace-a7c9-cafe48e016b6">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://88f16b9f-8385-4544-bec0-25bc81084237/schema/studyboard_db/table/forum">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="c9c89fd5-605c-4ace-a7c9-cafe48e016b6">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://88f16b9f-8385-4544-bec0-25bc81084237/schema/studyboard_db/table/student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="c9c89fd5-605c-4ace-a7c9-cafe48e016b6">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/DatabaseService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1846">
+          <caret line="205" column="5" lean-forward="true" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
+          <folding>
+            <element signature="e#32#61#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
