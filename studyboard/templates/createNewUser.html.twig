@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Neuen Benutzer erstellen</title>
-    <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
-    <link href="/style/global/div.css" rel="stylesheet" type="text/css"/>
-    <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
-    <link href="/style/index/dash.css" rel="stylesheet" type="text/css"/>
-    <link href="/style/index/image_gal.css" rel="stylesheet" type="text/css"/>
-    <link href="/style/index/alert.css" rel="stylesheet" type="text/css"/>
-    <link href="/style/global/mediaquerry/global-mediaq.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/style/login/newAccount.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/impressum/impressum.css"/>
+    <!--Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
 <div class="navigatorcont">
+    <h1>Neuen Account anlegen</h1>
     <form method="post" action="/createNewAccount">
         <label for="Username"></label>
-        <input type="text" name="name" id="Username" placeholder="Username" required>
+        <input type="text" name="name" id="Username" placeholder="Username" onblur="userValidation()">
+        <div class="alert" id="usrAlert">Benutzername zu kurz</div> <!--Fehlerbox Default: Opacity 0-->
+
         <label for="Email"></label>
-        <input type="email" name="email" id="email" placeholder="Email" required>
+        <input type="email" name="email" id="email" placeholder="E-Mail" onblur="emailValidation()">
+        <div class="alert" id="mailAlert">Email zu kurz!</div> <!--Fehlerbox Default: Opacity 0-->
+
         <label for="Password"></label>
-        <input type="Password" name="password" id="Password" placeholder="Passwort" pattern=".{6,}" required/>
+        <input type="Password" name="password" id="Password" placeholder="Passwort" onblur="passwordValidation()"/>
+        <div class="alert" id="pwAlert">Passwort zu kurz!</div> <!--Fehlerbox Default: Opacity 0-->
+
+        <input type="Password" id="PasswordConf" placeholder="Repeat Password" onblur="identityValidation()"/>
+        <div class="alert" id="validAlert">Passwort stimmt nicht überein!</div> <!--Fehlerbox Default: Opacity 0-->
+
         <label for="Farbe"></label>
         <input type="color" name="color" id="color" placeholder="Farbe" required>
         <input type="submit" value="Submit" id="submit"/>
     </form>
 </div>
-<script src=""></script>
+<button class="impback" onclick="backLog()"><i class="material-icons">arrow_back</i></button>
+<script src="/script/login/newAccount.js"></script>
 </body>
 </html>

@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Benutzereinstellungen</title>
-    <!--Head-->
-    <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
-    <!--Foot-->
-    <link href="/style/foren/general.css" rel="stylesheet" type="text/css"/>
 
+    <!--Gerneral Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="/style/global/div.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/global/text.css"/>
+    <!--Settings Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="/style/settings/settings.css"/>
     <!--Material icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
 </head>
 <body>
 {% include 'sideMenue.html.twig' %}
-<div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
-<div class="navigatorcont">
-    <h1>Hi {{ user.studentName }}!</h1>
-    <table>
+<div class="head">
+    <img src="/media/studyboard_logo.png" id="logo">
+    <h1 class="h">Benutzereinstellungen</h1>
+</div>
+
+    <h2>Benutzereinstellungen</h2>
+    <h3>Hier können Nutzername, Passwort sowie die E-Mail geändert werden!</h3>
+    <!--user.studentName-->
+
+    <div class="line"></div>
+    <div class="bar">
+        <div class="barlink" onclick="opensite(event, 'windowCurrent')">Aktuelle Kontoinformationen</div>
+        <div class="barlink" onclick="opensite(event, 'windowEmail')">E-Mail ändern</div>
+        <div class="barlink" onclick="opensite(event, 'windowPasswd')">Passwort ändern</div>
+        <div class="barlink" onclick="opensite(event, 'windowColor')">Kontofarbe ändern</div>
+        <div class="barlink" id="del">Konto löschen</div>
+    </div>
+
+<div class="content" id="windowCurrent">
+    <h3>Kontoinformationen</h3>
+    <table class="current">
         <tr>
             <td>Nutzername:</td>
             <td>{{ user.studentName }}</td>
@@ -36,29 +53,41 @@
             {% endif %}
         </tr>
     </table>
-
-    <table>
-        <tr>
-            <form method="post" action="/changeColor">
-                <label for="Farbe"></label>
-                <input type="color" name="color" id="color" value="{{ user.color }}" required>
-                <input type="submit" value="Submit" id="submit"/>
-            </form>
-        </tr>
-        <tr>
-            <form method="post" action="/changePassword">
-                <input type="Password" name="newPassword" id="Password" placeholder="Neues Passwort" pattern=".{6,}"
-                       required/>
-                <input type="submit" value="Submit" id="submit"/>
-            </form>
-        </tr>
-        <form method="post" action="/changeEmail">
-            <input type="email" name="email" id="email" placeholder="Neue E-Mail" required>
-            <input type="submit" value="Submit" id="submit"/>
-        </form>
-        </tr>
-    </table>
 </div>
-<script src=""></script>
+<div class="content" id="windowEmail">
+    <h3>E-Mail Adresse für {{user.studentName}} ändern</h3>
+        <form class="inputField" method="post" action="/changeEmail" >
+            <input type="text" name="email" id="email" placeholder="Neue E-Mail" onblur="validateEmail('email', 'mailAlert', 'Eingabe ist keine E-Mail!')">
+            <div class="mailAlert" id="mailAlert">Eingabe ist keine E-Mail</div>
+            <input type="text" id="repeat" placeholder="E-Mail wiederholen" onblur="validateIdent('email', 'repeat', 'repeatAlert', 'Eingaben stimmen nicht überein!')">
+            <div class="mailAlert" id="repeatAlert">Eingegebene E-Mail zu kurz!</div>
+            <input type="submit" class="submit" value="Submit" id="submit"/>
+        </form>
+</div>
+<div class="content" id="windowPasswd">
+    <h3>Passwort für {{user.studentName}} ändern</h3>
+    <form class="inputField" method="post" action="/changePassword" >
+            <input type="password" name="pwOld" id="pwOld" placeholder="Altes Passwort eingeben">
+            <div class="mailAlert"></div>
+            <input type="password" name="newPassword" id="Password" placeholder="Neues Passwort" onblur="validatePassword('Password', 'pwAlert', 'Eingabe ist zu kurz!')">
+            <div class="mailAlert" id="pwAlert">Eingabe ist keine E-Mail</div>
+            <input type="password" id="repeatpw" placeholder="Passwort wiederholen" onblur="validateIdent('Password', 'repeatpw', 'pwrepeatAlert', 'Eingaben stimmen nicht überein!')">
+            <div class="mailAlert" id="pwrepeatAlert">Eingegebene E-Mail zu kurz!</div>
+            <input type="submit" class="submit" value="Submit" id="submit"/>
+    </form>
+</div>
+<div class="content" id="windowColor">
+    <h3>Kontofarbe für {{ user.studentName }} ändern</h3>
+    <form class="inputField" method="post" action="/changeColor">
+        <h4>Auf das feld Klicken, um Farbe anzupassen</h4>
+        <label for=""Farbe></label>
+        <input type="color" name="color" id="color" value="{{ user.color }}">
+        <input type="submit" value="Submit" class="submit">
+    </form>
+</div>
+
+<div class="footsite"></div>
+<script src="/script/settings/settings.js"></script>
+<script src="/script/login/abstractValid.js"></script>
 </body>
 </html>

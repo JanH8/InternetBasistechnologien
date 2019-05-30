@@ -114,6 +114,9 @@
     "nikic/php-parser": {
         "version": "v4.2.1"
     },
+    "ocramius/package-versions": {
+        "version": "1.4.0"
+    },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
     },
@@ -283,6 +286,9 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/mime": {
+        "version": "v4.3.0"
     },
     "symfony/monolog-bridge": {
         "version": "v4.2.4"

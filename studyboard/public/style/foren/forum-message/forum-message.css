@@ -1,5 +1,6 @@
 html{
     overflow: hidden;
+    font-family: 'Raleway', sans-serif;
 }
 
 .content-msg{
@@ -25,7 +26,6 @@ html{
 }
 
 .content-msg > div{
-    font-family: 'Roboto', sans-serif;
     position: relative;
     display: block;
     border-radius: 15px;

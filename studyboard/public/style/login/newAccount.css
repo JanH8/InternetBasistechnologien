@@ -1,0 +1,85 @@
+html{
+    font-family: 'Raleway', sans-serif;
+}
+
+.alert{
+    position: relative;
+    width: 250px;
+    height: 20px;
+    color: red;
+    margin-right: auto;
+    margin-left: auto;
+
+    opacity: 0;
+    border-bottom: 1px solid red;
+    text-align: center;
+
+    transition: opacity .5s;
+}
+
+/*Redundant!*/
+/*TODO Auslagern auf gemeinsame .css Datei!*/
+.logobox{
+    position: relative;
+    width: 100%;
+    height: 75px;
+    min-height: 50px;
+    display: block;
+    border-bottom: 1px solid blue;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 4px 4px 7px gray;
+    padding-bottom: 15px;
+}
+#logo{
+    position: relative;
+    height: 75px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navigatorcont{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+input {
+    margin: 30px auto 5px auto;
+    position: relative;
+    display: block;
+    width: 50%;
+    font-size: 20px;
+    padding: 8px;
+    border: 1px solid blue;
+    transition: background-color .5s, color .5s, width .5s;
+}
+input:focus{
+    width: 50.5%;
+    outline: none;
+    color: #202020;
+}
+input:focus::placeholder{
+    color: rgba(0,0,0,0);
+}
+/*End of Redundancy*/
+form{
+    border: 1px solid gray;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 30px;
+}
+
+/*ggf. auslagern*/
+h1{
+    text-align: center;
+    font-weight: lighter;
+}
+#submit{
+    display: none;
+}
+#submit:hover{
+    background-color: #3858ff;
+    color: white;
+}

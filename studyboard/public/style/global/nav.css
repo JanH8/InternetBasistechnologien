@@ -4,6 +4,7 @@
     transition: margin-left 1s;
     top: 0;
     margin-top: 0;
+    font-family: Raleway, sans-serif;
 }
 
 body{
@@ -47,7 +48,6 @@ body{
 #navbar a{
     color: blue;
     outline: none;
-    font-family: 'Roboto', sans-serif;
     font-size: 25px;
     position: relative;
     text-decoration: none;
