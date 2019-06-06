@@ -97,6 +97,23 @@ class DatabaseService
         }
     }
 
+    public function deactivateUser($userID)
+    {
+        try {
+            $query = 'UPDATE student SET status =0 WHERE studentId = :id';
+
+            $stm = $this->pdo->prepare($query);
+            if ($userID && $stm && $stm->execute([':id' => $userID])) {
+                return true;
+            } else {
+                throw new Exception('Anmeldung fehlgeschlagen!');
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+
     public function changeEmail($userID)
     {
         $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
@@ -221,14 +238,14 @@ class DatabaseService
         }
     }
 
-    public function getForumIdByName($name)
+    public function getForumByName($name)
     {
-        $query = "SELECT forumId FROM forum WHERE forumName=:name";
+        $query = "SELECT * FROM forum WHERE forumName=:name";
         $stm = $this->pdo->prepare($query);
         $valueArray = [':name' => $name];
         if ($stm && $stm->execute($valueArray)) {
             $result = $stm->fetch(PDO::FETCH_ASSOC);
-            return (isset($result['forumId'])) ? $result['forumId'] : False;
+            return (isset($result) ? $result : False);
         } else {
             return False;
         }
@@ -241,7 +258,7 @@ class DatabaseService
         $valueArray = [':id' => $id];
         if ($stm && $stm->execute($valueArray)) {
             $result = $stm->fetch(PDO::FETCH_ASSOC);
-            return (isset($result)) ? $result : False;
+            return $result;
         } else {
             return False;
         }
