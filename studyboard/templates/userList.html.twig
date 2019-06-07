@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Studyboard | Home</title>
+    <title>Nutzerübersicht</title>
     <link href="/style/global/div.css" rel="stylesheet" type="text/css"/>
     <link href="/style/global/text.css" rel="stylesheet" type="text/css"/>
     <link href="/style/index/dash.css" rel="stylesheet" type="text/css"/>
@@ -19,15 +19,26 @@
 <a class="inh" href="/home">
     <div class="head">
         <img id="logo" src="/media/studyboard_logo.png">
-        <h1 class="h" id="heading">Studyboard</h1>
+        <h1 class="h" id="heading">Nutzerübersicht</h1>
     </div>
 </a>
-<div class="menubar">
-    <a class="barelement" href="/home"><i class="material-icons">home</i> Home</a>
-    <a class="barelement" href="/forum">Foren</a>
-    <a class="barelement" href="/createNewForum">Neues Forum</a>
-    <a class="barelement" href="/settings">Settings</a>
-    <a class="barelement" href="#logout" onclick="togglelogoutalert()">Abmelden</a>
+<div class="userList">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>Status</th>
+            <th>Bearbeiten</th>
+        </tr>
+        {% for user in users%}
+            <tr>
+                <td>{{ user.studentName }}</td>
+                <td>{{ user.studentName }}</td>
+                <td>{% if 2 == user.status %}Admin{% elseif 1 == user.status %}Aktiv{% else %}Inaktiv{% endif %}</td>
+                <td><a href="/settings/{{ user.studentId }}">Bearbeiten</a></td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 {% include 'sideMenue.html.twig' %}
 </body>

@@ -30,6 +30,17 @@ class DatabaseService
         return $nameArray;
     }
 
+
+    public function getAllNormalUsers()
+    {
+        $query = "SELECT * FROM student WHERE status != 2";
+        $stm = $this->pdo->prepare($query);
+        if ($stm && $stm->execute() && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
+            return $result;
+        }
+        return [];
+    }
+
     public function getMessagesByForum($forumName)
     {
         $messagesArray = [];
@@ -97,27 +108,10 @@ class DatabaseService
         }
     }
 
-    public function deactivateUser($userID)
-    {
-        try {
-            $query = 'UPDATE student SET status =0 WHERE studentId = :id';
-
-            $stm = $this->pdo->prepare($query);
-            if ($userID && $stm && $stm->execute([':id' => $userID])) {
-                return true;
-            } else {
-                throw new Exception('Anmeldung fehlgeschlagen!');
-            }
-        } catch (Exception $e) {
-            return false;
-        }
-    }
-
-
     public function changeEmail($userID)
     {
-        $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
-        return $this->updateEmail($userID, $email);
+        $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) : '';
+        return ($email)?$this->updateEmail($userID, $email):false;
     }
 
     public function updatePassword($userID, $password)
@@ -125,7 +119,6 @@ class DatabaseService
         try {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $query = 'UPDATE student SET password =:password WHERE studentId = :id';
-
             $stm = $this->pdo->prepare($query);
             if ($userID && $stm && $stm->execute([':password' => $hashedPassword, ':id' => $userID])) {
                 return true;
@@ -139,8 +132,14 @@ class DatabaseService
 
     public function changePassword($userID)
     {
-        $password = (key_exists('newPassword', $_POST)) ? filter_var($_POST['newPassword'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
-        return $this->updatePassword($userID, $password);
+        $password = (key_exists('newPassword', $_POST)) ? $_POST['newPassword'] : '';
+        $oldPassword = (key_exists('pwOld', $_POST)) ? $_POST['pwOld'] : '';
+        if($password && $oldPassword && $this->verifyOldPassword($userID,$oldPassword)) {
+            return $this->updatePassword($userID, $password);
+        }
+        else {
+            return false;
+        }
     }
 
     public function updateColor($userID, $color)
@@ -179,8 +178,8 @@ class DatabaseService
     public function registerNewAccount()
     {
         $name = (key_exists('name', $_POST)) ? filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
-        $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
-        $password = (key_exists('password', $_POST)) ? filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
+        $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) : '';
+        $password = (key_exists('password', $_POST)) ? $_POST['password'] : '';
         $color = (key_exists('color', $_POST)) ? filter_var($_POST['color'], FILTER_SANITIZE_SPECIAL_CHARS) : '#ffffff';
         return $this->createNewAccount($name, $email, $password, $color);
     }
@@ -190,6 +189,17 @@ class DatabaseService
         $query = 'SELECT * FROM student WHERE studentName=:name';
         $stm = $this->pdo->prepare($query);
         if ($stm && $stm->execute([':name' => $name])) {
+            return $stm->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getUserById($id)
+    {
+        $query = 'SELECT * FROM student WHERE studentId=:studentId';
+        $stm = $this->pdo->prepare($query);
+        if ($stm && $stm->execute([':studentId' => $id])) {
             return $stm->fetch(PDO::FETCH_ASSOC);
         } else {
             return FALSE;
@@ -238,14 +248,14 @@ class DatabaseService
         }
     }
 
-    public function getForumByName($name)
+    public function getForumIdByName($name)
     {
-        $query = "SELECT * FROM forum WHERE forumName=:name";
+        $query = "SELECT forumId FROM forum WHERE forumName=:name";
         $stm = $this->pdo->prepare($query);
         $valueArray = [':name' => $name];
         if ($stm && $stm->execute($valueArray)) {
             $result = $stm->fetch(PDO::FETCH_ASSOC);
-            return (isset($result) ? $result : False);
+            return (isset($result['forumId'])) ? $result['forumId'] : False;
         } else {
             return False;
         }
@@ -258,7 +268,7 @@ class DatabaseService
         $valueArray = [':id' => $id];
         if ($stm && $stm->execute($valueArray)) {
             $result = $stm->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            return (isset($result)) ? $result : False;
         } else {
             return False;
         }
@@ -273,6 +283,29 @@ class DatabaseService
             return true;
         } else {
             return False;
+        }
+    }
+
+    public function alterUserStatus(int $id, int $status):bool
+    {
+        $query = 'UPDATE student SET status=:status WHERE studentId=:id';
+        $stm = $this->pdo->prepare($query);
+        $valueArray = [':id' => $id,':status' => $status];
+        if ($stm && $stm->execute($valueArray)) {
+            return true;
+        } else {
+            return False;
+        }
+    }
+
+
+    public function verifyOldPassword($id, $oldPassword):bool
+    {
+        $result = $this->getUserById($id);
+        if ($result &&  password_verify($oldPassword, $result['password'])) {
+            return true;
+        } else {
+            return false;
         }
     }
 
