@@ -19,8 +19,10 @@
 
     </head>
     <body>
+
         <div class="content-msg">  
             {% for message in messages %}
+
                 {% if user == message.studentName %}
                     <div class="msg-sent">
                     {% else %}
@@ -29,7 +31,7 @@
                         {{ message.contend }}
                         <hr>
                         <span class="metadata-msg"> {{message.tstmp|date("d.m.Y H:i", "Europe/Paris")}} | <span style="color:{{message.color}}"> {{message.studentName }} </span>| #{{ message.postId }}
-                            {% if (user == message.studentName or isAdmin == true or id==forum.creator) %}
+                            {% if user == message.studentName %}
                                 | <a href="/deletePost/{{ message.forumName }}/{{ message.postId }}">
                                     <i class="material-icons">delete</i>
                                 </a>
