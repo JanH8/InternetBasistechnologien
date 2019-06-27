@@ -1,12 +1,6 @@
 var currentForum = document.getElementById("forumIframe").src;
 function changeCurrentForum(event, forumUrl) {
-    var tabs = document.getElementsByClassName('tab');
-    for (var tab of tabs) {
-        tab.classList.remove("active");
-    }
-    event.target.classList.add("active");
-    currentForum = "/forumTable/" + forumUrl;
-    document.getElementById("forumIframe").src = currentForum;
+    document.location.href= "/forum/"+forumUrl;
 }
 
 function sendPostToForum() {

@@ -48,14 +48,22 @@ class StudyboardController extends AbstractController {
     }
 
     /**
-     * @Route("/deletePost/{forumName}/{postId}", name="deletePost")
+     * @Route("/deletePost/{forumId}/{postId}", name="deletePost")
      */
-    public function deletePost($postId, $forumName, Session $session, DatabaseService $database) {
-        $currentUser = $session->get('userName');
-        if ($database->getPostById($postId)) {
-            $database->deletePostById($postId);
+    public function deletePost($postId, $forumId, Session $session, DatabaseService $database)
+    {
+        $userId = $session->get('userId');
+        $userAdmin = $session->get('userAdmin');
+        $forum = $database->getForumById($forumId);
+        $post = $database->getPostById($postId);
+        if (isset($post)) {
+            if ($post["author"] == $userId || $userAdmin || $forum["creator"] == $userId) {
+                $database->deletePostById($postId);
+                return $this->render('back.html.twig');
+            } else {
+                return $this->redirect('/logout');
+            }
         }
-        return $this->redirect("/forumTable/" . $forumName);
     }
 
     /**
@@ -283,22 +291,25 @@ class StudyboardController extends AbstractController {
     }
 
     /**
-     * @Route("/forumTable/{forumName}", name="forumTable")
+     * @Route("/forumTable/{forumId}", name="forumTable")
      */
-    public function forumTable($forumName, DatabaseService $database) {
+    public function forumTable($forumId, DatabaseService $database) {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $currentUser = $session->get('userName');
             $currentUserId = $session->get('userId');
             $abos = $database->getAbosByUser($currentUserId);
-            $database->createTimestamp($forumName, $currentUserId);
-            $forumId = $database ->getForumIdByName($forumName);
-            $messages = $database->getMessagesByForum($forumName);
+            $database->createTimestamp($forumId, $currentUserId);
+            $messages = $database->getMessagesByForum($forumId);
+            $id = $session->get('userId');
+            $isAdmin = $session->get('userAdmin');
             $twigArray = [
+                'id' => $id,
+                'isAdmin' => $isAdmin,
+                'messages' => $messages,
                 'user' => $currentUser,
                 'messages' => $messages,
                 'abos'=> $abos,
-                'forumName'=> $forumName,
                 'forumId'=>$forumId
             ];
             return $this->render("forum.html.twig", $twigArray);
@@ -315,6 +326,14 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $forumlist = $database->getAllForums();
+            if(sizeof($forumlist)>0){
+                var_dump($forumlist);
+                $forum = $forumlist[0];
+                var_dump($forum);
+                $url = "/forum/".$forum['forumId'];
+                var_dump($url);
+                return $this->redirect($url);
+            }
             $userId = $session->get('userId');
             $notifications = $database->getNotificationsForUser($userId);
             $twigArray = [
@@ -339,7 +358,7 @@ class StudyboardController extends AbstractController {
             $id = $session->get('userId');
             $database->createNewAbo($forumId, $id);
         }
-        return $this->redirect("/home");
+        return $this->render('back.html.twig');
     }
     /**
      * @Route("/deleteAbo/{forumId}", name="deleteAbo")
@@ -351,20 +370,22 @@ class StudyboardController extends AbstractController {
             $id = $session->get('userId');
             $db = $database->deleteAbo($forumId, $id);
         }
-        return $this->redirect("/home");
+        return $this->render('back.html.twig');
     }
 
     /**
-     * @Route("/forum/{forumName}", name="forum")
+     * @Route("/forum/{forumId}", name="forum")
      */
-    public function forum($forumName, DatabaseService $database) {
+    public function forum($forumId, DatabaseService $database) {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $forumlist = $database->getAllForums();
-            $forumId = $database->getForumIdByName($forumName);
+            $userId = $session->get('userId');
+            $notifications = $database->getNotificationsForUser($userId);
             $twigArray = [
                 'forums' => $forumlist,
-                'currentForum' => $forumId ? $forumName : '',
+                'currentForum' => $forumId,
+                'notifications' => $notifications
             ];
             return $this->render("foren.html.twig", $twigArray);
         } else {
@@ -383,7 +404,7 @@ class StudyboardController extends AbstractController {
                 $userId = $session->get('userId');
                 $forumName = filter_var($_POST['forumName'], FILTER_SANITIZE_SPECIAL_CHARS);
                 if ($database->createNewForum($forumName, $userId)) {
-                    return $this->redirect('/forum/' . $forumName);
+                    return $this->redirect('/forum/');
                 }
             }
             return $this->render("newForum.html.twig");
@@ -394,16 +415,16 @@ class StudyboardController extends AbstractController {
     }
 
     /**
-     * @Route("/forumApi/{forumName}", name="forumApi")
+     * @Route("/forumApi/{forumId}", name="forumApi")
      */
-    public function forumApi(String $forumName, DatabaseService $database) {
+    public function forumApi(String $forumId, DatabaseService $database) {
         $session = $this->startSession();
         try {
-            if (!$this->userIsLoggedIn($session) || !in_array($forumName, $database->getAllForums()) || !isset($_POST['message'])) {
+            if (!$this->userIsLoggedIn($session)  || !isset($_POST['message'])) {
                 throw new Exception();
             }
             $userId = $session->get('userId');
-            if ($database->makeNewEntry($forumName, $_POST['message'], $userId)) {
+            if ($database->makeNewEntry($forumId, $_POST['message'], $userId)) {
                 return new Response('', 200);
             } else {
                 return new Response('', 400);
@@ -419,16 +440,7 @@ class StudyboardController extends AbstractController {
     public function userList(DatabaseService $database) {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session) && $this->isAdmin($session)) {
-            $personalArray = [
-                [
-                    'studentId' => $session->get('userId'),
-                    'studentName' => $session->get('userName'),
-                    'email' => $session->get('userEmail'),
-                    'color' => $session->get('userColor'),
-                    'status' => 2
-                ]
-            ];
-            $usersArray = array_merge($personalArray,$database->getAllNormalUsers());
+            $usersArray = $database->getAllUsers();
             $twigArray = [
                 'users' => $usersArray
             ];

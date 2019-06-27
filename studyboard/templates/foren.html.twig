@@ -34,8 +34,9 @@
                     {% set num = notification.number %}
                 {% endif %}
             {% endfor %}
-            <button class="tab {% if forum == currentForum %}active{% endif %}"
-                    onclick="changeCurrentForum(event, '{{ forum }}')">{{ forum }} ({{ num }})</button>
+            <button class="tab {% if forum.forumId == currentForum %}active{% endif %}"
+                    onclick="changeCurrentForum(event, '{{ forum.forumId }}')">{{ forum.forumName }} ({{ num }})
+            </button>
         {% endfor %}
         <!--Last button is spacing-->
         <button class="tab space" onclick="null">Content</button>
