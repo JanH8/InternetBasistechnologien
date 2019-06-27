@@ -32,4 +32,3 @@ CREATE TABLE post (
     Foreign Key (author) References student(studentId),
  Foreign KEY (forumId) References forum(forumId)
 );
-

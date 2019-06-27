@@ -40,7 +40,7 @@
                         </span>
         </div>
         {% endfor %}
-        <div class=msg-sent>
+        <div class="msg-sent" id="forum_end">
             {% set isAbo = false %}
             {% for abo in abos %}
                 {% if abo.forumName == forumName %}
@@ -48,12 +48,13 @@
                 {% endif %}
             {% endfor %}
             {% if isAbo == true %}
-            <a href="/deleteAbo/{{ forumId }}">Deabbonieren</a>
+                <a href="/deleteAbo/{{ forumId }}">Deabbonieren</a>
             {% else %}
-            <a href="/newAbo/{{ forumId }}">Abbonieren</a>
-        {% endif %}
+                <a href="/newAbo/{{ forumId }}">Abbonieren</a>
+            {% endif %}
         </div>
         <div class="msg-spacer"></div>
     </div>
+</div>
 </body>
 </html>

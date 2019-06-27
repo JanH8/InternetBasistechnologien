@@ -5,8 +5,9 @@ function changeCurrentForum(event, forumUrl) {
         tab.classList.remove("active");
     }
     event.target.classList.add("active");
-    currentForum = "/forumTable/" + forumUrl;
+    currentForum = "/forumTable/" + forumUrl + '#forum_end';
     document.getElementById("forumIframe").src = currentForum;
+    document.getElementById("forumIframe").contentWindow.scrollTo( 0, 999999 );
 }
 
 function sendPostToForum() {
@@ -19,6 +20,7 @@ function sendPostToForum() {
         ajax.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("chatin").value = "";
+                window.frames[0].location.reload();
             }
         };
         ajax.open('POST', forumApiUrl);
@@ -26,3 +28,7 @@ function sendPostToForum() {
         ajax.send('&message=' + message );
     }
 }
+
+window.setInterval(function () {
+    window.frames[0].location.reload();
+}, 15000);
