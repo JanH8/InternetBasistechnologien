@@ -262,8 +262,10 @@ class StudyboardController extends AbstractController {
         if ($this->userIsLoggedIn($session)) {
             $userId = $session->get('userId');
             $abos = $database->getAbosByUser($userId);
+            $notifications = $database->getNotificationsForUser($userId);
             $twigArray = [
-                'abos' => $abos
+                'abos' => $abos,
+                'notifications' => $notifications
             ];
             return $this->render('home.html.twig', $twigArray);
         } else {
@@ -287,10 +289,17 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $currentUser = $session->get('userName');
+            $currentUserId = $session->get('userId');
+            $abos = $database->getAbosByUser($currentUserId);
+            $database->createTimestamp($forumName, $currentUserId);
+            $forumId = $database ->getForumIdByName($forumName);
             $messages = $database->getMessagesByForum($forumName);
             $twigArray = [
                 'user' => $currentUser,
-                'messages' => $messages
+                'messages' => $messages,
+                'abos'=> $abos,
+                'forumName'=> $forumName,
+                'forumId'=>$forumId
             ];
             return $this->render("forum.html.twig", $twigArray);
         } else {
@@ -306,9 +315,12 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $forumlist = $database->getAllForums();
+            $userId = $session->get('userId');
+            $notifications = $database->getNotificationsForUser($userId);
             $twigArray = [
                 'forums' => $forumlist,
                 'currentForum' => '',
+                'notifications' => $notifications
             ];
             return $this->render('foren.html.twig', $twigArray);
         } else {
@@ -325,11 +337,9 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
             $id = $session->get('userId');
-            var_dump($id);
-            var_dump($forumId);
             $database->createNewAbo($forumId, $id);
         }
-        return $this->render('blank.html.twig');
+        return $this->redirect("/home");
     }
     /**
      * @Route("/deleteAbo/{forumId}", name="deleteAbo")
@@ -340,10 +350,8 @@ class StudyboardController extends AbstractController {
         if ($this->userIsLoggedIn($session)) {
             $id = $session->get('userId');
             $db = $database->deleteAbo($forumId, $id);
-            var_dump($db);
-            var_dump($id);
         }
-        return $this->render('blank.html.twig');
+        return $this->redirect("/home");
     }
 
     /**

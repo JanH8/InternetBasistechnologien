@@ -28,8 +28,14 @@
         <button class="tab space">spa</button>
         <!--First button is spacing-->
         {% for forum in forums %}
+            {% set num = 0 %}
+            {% for notification in notifications %}
+                {% if notification.forumName == forum %}
+                    {% set num = notification.number %}
+                {% endif %}
+            {% endfor %}
             <button class="tab {% if forum == currentForum %}active{% endif %}"
-                    onclick="changeCurrentForum(event, '{{ forum }}')">{{ forum }}</button>
+                    onclick="changeCurrentForum(event, '{{ forum }}')">{{ forum }} ({{ num }})</button>
         {% endfor %}
         <!--Last button is spacing-->
         <button class="tab space" onclick="null">Content</button>

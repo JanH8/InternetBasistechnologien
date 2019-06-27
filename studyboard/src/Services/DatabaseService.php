@@ -111,7 +111,7 @@ class DatabaseService
     public function changeEmail($userID)
     {
         $email = (key_exists('email', $_POST)) ? filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) : '';
-        return ($email)?$this->updateEmail($userID, $email):false;
+        return ($email) ? $this->updateEmail($userID, $email) : false;
     }
 
     public function updatePassword($userID, $password)
@@ -134,10 +134,9 @@ class DatabaseService
     {
         $password = (key_exists('newPassword', $_POST)) ? $_POST['newPassword'] : '';
         $oldPassword = (key_exists('pwOld', $_POST)) ? $_POST['pwOld'] : '';
-        if($password && $oldPassword && $this->verifyOldPassword($userID,$oldPassword)) {
+        if ($password && $oldPassword && $this->verifyOldPassword($userID, $oldPassword)) {
             return $this->updatePassword($userID, $password);
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -260,7 +259,7 @@ class DatabaseService
         }
     }
 
-    public function getAbosByUser( $userId)
+    public function getAbosByUser($userId)
     {
         $query = 'SELECT * FROM abonnement INNER JOIN forum on forum=forumId WHERE student = :user';
         $valueArray = [
@@ -294,6 +293,44 @@ class DatabaseService
             return False;
         }
     }
+
+    public function createTimestamp($forum, $userId)
+    {
+        $forumId = $this->getForumIdByName($forum);
+        $query = 'INSERT INTO lastvisited (tstmp, forumId, student ) '
+            . 'VALUES (:tstmp, :forumId, :student) ON DUPLICATE KEY UPDATE tstmp = :tstmp, forumId = :forumId, student = :student';
+        $valueArray = [
+            ':tstmp' => time(),
+            ':forumId' => $forumId,
+            ':student' => $userId
+        ];
+        $stm = $this->pdo->prepare($query);
+        if ($forumId && $stm && $stm->execute($valueArray)) {
+            return true;
+        } else {
+            return False;
+        }
+    }
+
+    public function getNotificationsForUser($userId)
+    {
+        $query = 'SELECT f.forumId, f.forumName, COUNT(p.postId) as number FROM lastvisited l '
+            . 'INNER JOIN forum f on f.forumId = l.forumId '
+            . 'INNER JOIN post p ON l.forumId = p.forumId '
+            . 'WHERE '
+            . 'l.tstmp < p.tstmp '
+            . 'AND l.student = :studentId '
+            . 'GROUP BY f.forumId ';
+        $stm = $this->pdo->prepare($query);
+        $valueArray = [':studentId' => $userId];
+        if ($stm && $stm->execute($valueArray)) {
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return (isset($result)) ? $result : False;
+        } else {
+            return False;
+        }
+    }
+
 
     public function getForumIdByName($name)
     {
@@ -333,11 +370,11 @@ class DatabaseService
         }
     }
 
-    public function alterUserStatus(int $id, int $status):bool
+    public function alterUserStatus(int $id, int $status): bool
     {
         $query = 'UPDATE student SET status=:status WHERE studentId=:id';
         $stm = $this->pdo->prepare($query);
-        $valueArray = [':id' => $id,':status' => $status];
+        $valueArray = [':id' => $id, ':status' => $status];
         if ($stm && $stm->execute($valueArray)) {
             return true;
         } else {
@@ -346,10 +383,10 @@ class DatabaseService
     }
 
 
-    public function verifyOldPassword($id, $oldPassword):bool
+    public function verifyOldPassword($id, $oldPassword): bool
     {
         $result = $this->getUserById($id);
-        if ($result &&  password_verify($oldPassword, $result['password'])) {
+        if ($result && password_verify($oldPassword, $result['password'])) {
             return true;
         } else {
             return false;

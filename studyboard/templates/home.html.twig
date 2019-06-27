@@ -42,14 +42,25 @@
         <th> StudentId</th>
         <th>ForumId</th>
         <th>ForumName</th>
+        <th>unread messages</th>
         <th>Unsubscribe</th>
     </tr>
     {% for abo in abos %}
         <tr>
-            <td>  </td>
+            <td></td>
             <td>{{ abo.student }}</td>
             <td>{{ abo.forum }}</td>
             <td>{{ abo.forumName }}</td>
+            <td>
+                {% set num = 0 %}
+                {% for notification in notifications %}
+                    {% if notification.forumId == abo.forum %}
+                        {% set num = notification.number %}
+                    {% endif %}
+                {% endfor %}
+                {{ num }}
+
+            </td>
             <td><a href="/deleteAbo/{{ abo.forum }}"> Deabbonieren</a></td>
 
         </tr>
