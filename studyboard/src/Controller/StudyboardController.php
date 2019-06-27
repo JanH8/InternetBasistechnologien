@@ -256,15 +256,22 @@ class StudyboardController extends AbstractController {
     /**
      * @Route("/home", name="home")
      */
-    public function home() {
+    public function home(DatabaseService $database)
+    {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
-            return $this->render('home.html.twig');
+            $userId = $session->get('userId');
+            $abos = $database->getAbosByUser($userId);
+            $twigArray = [
+                'abos' => $abos
+            ];
+            return $this->render('home.html.twig', $twigArray);
         } else {
             $this->userLogout($session);
             return $this->redirect("/");
         }
     }
+
 
     /**
      * @Route("/forumTable", name="emptyForum")
@@ -308,6 +315,35 @@ class StudyboardController extends AbstractController {
             $this->userLogout($session);
             return $this->redirect("/");
         }
+    }
+
+    /**
+     * @Route("/newAbo/{forumId}", name="newAbo")
+     */
+    public function newAbo($forumId, DatabaseService $database)
+    {
+        $session = $this->startSession();
+        if ($this->userIsLoggedIn($session)) {
+            $id = $session->get('userId');
+            var_dump($id);
+            var_dump($forumId);
+            $database->createNewAbo($forumId, $id);
+        }
+        return $this->render('blank.html.twig');
+    }
+    /**
+     * @Route("/deleteAbo/{forumId}", name="deleteAbo")
+     */
+    public function deleteAbo($forumId, DatabaseService $database)
+    {
+        $session = $this->startSession();
+        if ($this->userIsLoggedIn($session)) {
+            $id = $session->get('userId');
+            $db = $database->deleteAbo($forumId, $id);
+            var_dump($db);
+            var_dump($id);
+        }
+        return $this->render('blank.html.twig');
     }
 
     /**

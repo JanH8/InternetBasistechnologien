@@ -29,6 +29,34 @@
     <a class="barelement" href="/settings">Settings</a>
     <a class="barelement" href="#logout" onclick="togglelogoutalert()">Abmelden</a>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table>
+    <tr>
+        <th>space</th>
+        <th> StudentId</th>
+        <th>ForumId</th>
+        <th>ForumName</th>
+        <th>Unsubscribe</th>
+    </tr>
+    {% for abo in abos %}
+        <tr>
+            <td>  </td>
+            <td>{{ abo.student }}</td>
+            <td>{{ abo.forum }}</td>
+            <td>{{ abo.forumName }}</td>
+            <td><a href="/deleteAbo/{{ abo.forum }}"> Deabbonieren</a></td>
+
+        </tr>
+    {% endfor %}
+
+</table>
+
 {% include 'sideMenue.html.twig' %}
 </body>
 </html>

@@ -229,6 +229,53 @@ class DatabaseService
         }
     }
 
+    public function createNewAbo($forumId, $userId)
+    {
+        $query = 'INSERT INTO abonnement (student, forum) '
+            . 'VALUES (:user, :forum)';
+        $valueArray = [
+            ':user' => $userId,
+            ':forum' => $forumId
+        ];
+        $stm = $this->pdo->prepare($query);
+        if ($forumId && $userId && $stm && $stm->execute($valueArray)) {
+            return true;
+        } else {
+            return False;
+        }
+    }
+
+    public function deleteAbo($forumId, $userId)
+    {
+        $query = 'DELETE FROM abonnement WHERE student = :user AND forum = :forum ';
+        $valueArray = [
+            ':user' => $userId,
+            ':forum' => $forumId
+        ];
+        $stm = $this->pdo->prepare($query);
+        if ($forumId && $userId && $stm && $stm->execute($valueArray)) {
+            return true;
+        } else {
+            return False;
+        }
+    }
+
+    public function getAbosByUser( $userId)
+    {
+        $query = 'SELECT * FROM abonnement INNER JOIN forum on forum=forumId WHERE student = :user';
+        $valueArray = [
+            ':user' => $userId
+        ];
+        $stm = $this->pdo->prepare($query);
+        if ($userId && $stm && $stm->execute($valueArray)) {
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return (isset($result) ? $result : False);
+        } else {
+            return False;
+        }
+    }
+
+
     public function makeNewEntry($forum, $message, $userId)
     {
         $forumId = $this->getForumIdByName($forum);
