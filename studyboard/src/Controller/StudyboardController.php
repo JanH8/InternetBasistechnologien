@@ -301,6 +301,7 @@ class StudyboardController extends AbstractController {
             $abos = $database->getAbosByUser($currentUserId);
             $database->createTimestamp($forumId, $currentUserId);
             $messages = $database->getMessagesByForum($forumId);
+            $forum = $database->getForumById($forumId);
             $id = $session->get('userId');
             $isAdmin = $session->get('userAdmin');
             $twigArray = [
@@ -310,7 +311,8 @@ class StudyboardController extends AbstractController {
                 'user' => $currentUser,
                 'messages' => $messages,
                 'abos'=> $abos,
-                'forumId'=>$forumId
+                'forumId'=>$forumId,
+                'forum'=>$forum
             ];
             return $this->render("forum.html.twig", $twigArray);
         } else {

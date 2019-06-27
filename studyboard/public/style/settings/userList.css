@@ -1,0 +1,54 @@
+html{
+    overflow: scroll;
+}
+.admin_head{
+    display: block;
+    text-align: center;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    position: relative;
+    margin: 20px auto 30px auto;
+}
+
+.userListContent{
+    margin: 15px auto 15px auto;
+}
+.userList{
+    position: relative;
+    margin: 100px auto 15px auto;
+
+    width: 80%;
+    border: none;
+
+    font-size: 20px;
+}
+.userList tr{
+    border: none;
+    transition: background-color .2s;
+}
+.userList td{
+    text-align: center;
+    padding: 30px;
+}
+.userList td i{
+    transition: color .2s;
+}
+
+.userList td i:hover{
+    color: gray;
+}
+.legend{
+    margin: 30px auto 30px auto;
+    text-align: left;
+    padding: 15px;;
+    border: 1px solid #3858ff;
+    color: #3858ff;
+}
+.legend th{
+    text-align: center;
+}
+.legend td, tr{
+    padding: 5px;
+}

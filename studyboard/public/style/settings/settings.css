@@ -172,3 +172,18 @@ table{
     height: 1px;
     display: block;
 }
+.inputField select{
+    display: block;
+    position: relative;
+    margin: 30px auto;
+    height: 40px;
+    font-size: 17px;
+    background-color: #3858ff;
+    border: 1px solid black;
+    color: white;
+
+    transition: box-shadow .1s;
+}
+.inputField select:hover{
+    box-shadow: 3px 3px 13px gray;
+}
