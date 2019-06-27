@@ -351,7 +351,7 @@ class DatabaseService
         $valueArray = [':id' => $id];
         if ($stm && $stm->execute($valueArray)) {
             $result = $stm->fetch(PDO::FETCH_ASSOC);
-            return (isset($result['forumId'])) ? $result['forumId'] : False;
+            return (isset($result)) ? $result : False;
         } else {
             return False;
         }

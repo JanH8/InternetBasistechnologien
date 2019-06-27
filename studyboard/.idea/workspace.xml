@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="424c8133-d395-4fce-892c-717b029d7fc3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/style/settings/userList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/global/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/global/nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style/settings/settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/settings/settings.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StudyboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudyboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminSettings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminSettings.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/DatabaseService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/DatabaseService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forum.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forum.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/userList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userList.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/StudyboardController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="340" column="26" selection-start-line="340" selection-start-column="26" selection-end-line="340" selection-end-column="26" />
+            <state relative-caret-position="425">
+              <caret line="304" selection-start-line="304" selection-end-line="304" />
             </state>
           </provider>
         </entry>
@@ -53,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/forum.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+            <state relative-caret-position="391">
+              <caret line="35" column="16" lean-forward="true" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -65,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Services/DatabaseService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="355" column="25" selection-start-line="355" selection-start-column="25" selection-end-line="355" selection-end-column="25" />
+            <state relative-caret-position="344">
+              <caret line="353" column="45" selection-start-line="353" selection-start-column="45" selection-end-line="353" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -387,7 +380,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29900000" />
+    <option name="totallyTimeSpent" value="30965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -670,22 +663,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Services/DatabaseService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="355" column="25" selection-start-line="355" selection-start-column="25" selection-end-line="355" selection-end-column="25" />
+        <state relative-caret-position="344">
+          <caret line="353" column="45" selection-start-line="353" selection-start-column="45" selection-end-line="353" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/StudyboardController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="340" column="26" selection-start-line="340" selection-start-column="26" selection-end-line="340" selection-end-column="26" />
+        <state relative-caret-position="425">
+          <caret line="304" selection-start-line="304" selection-end-line="304" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/forum.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="391">
+          <caret line="35" column="16" lean-forward="true" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
           <folding>
             <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
