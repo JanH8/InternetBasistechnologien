@@ -30,7 +30,7 @@
         {% for forum in forums %}
             {% set num = 0 %}
             {% for notification in notifications %}
-                {% if notification.forumName == forum %}
+                {% if notification.forumId == forum.forumId %}
                     {% set num = notification.number %}
                 {% endif %}
             {% endfor %}
