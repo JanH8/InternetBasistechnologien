@@ -327,7 +327,7 @@ class StudyboardController extends AbstractController {
     public function foren(DatabaseService $database) {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
-            $forumlist = $database->getAllForums();
+            $forumlist = $database->getAllActiveForums();
             if(sizeof($forumlist)>0){
                 var_dump($forumlist);
                 $forum = $forumlist[0];
@@ -374,6 +374,23 @@ class StudyboardController extends AbstractController {
         }
         return $this->render('back.html.twig');
     }
+    
+     /**
+     * @Route("/deactivateForum/{forumId}", name="deactivateForum")
+     */
+    public function deactivateForum($forumId, DatabaseService $database)
+    {
+        $forum = $database->getForumById($forumId);
+        $session = $this->startSession();
+        if ($this->userIsLoggedIn($session)) {
+            $userId = $session->get('userId');
+            $userAdmin = $session->get('userAdmin');
+        if ($userAdmin || $forum["creator"] == $userId) {
+            $database->deactivateForum($forumId);
+        }
+        }
+        return $this->render('back.html.twig');
+    }
 
     /**
      * @Route("/forum/{forumId}", name="forum")
@@ -381,7 +398,7 @@ class StudyboardController extends AbstractController {
     public function forum($forumId, DatabaseService $database) {
         $session = $this->startSession();
         if ($this->userIsLoggedIn($session)) {
-            $forumlist = $database->getAllForums();
+            $forumlist = $database->getAllActiveForums();
             $userId = $session->get('userId');
             $notifications = $database->getNotificationsForUser($userId);
             $twigArray = [

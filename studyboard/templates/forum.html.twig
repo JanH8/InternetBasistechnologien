@@ -55,7 +55,13 @@
             {% else %}
             <a href="/newAbo/{{ forumId }}">Abonnieren</a>
         {% endif %}
+       
         </div>
+         {% if isAdmin or forum.creator == user %}
+            <div class=msg-sent>
+                            <a href="/deactivateForum/{{ forumId }}">deaktivieren</a>
+            </div>
+            {% endif %}
         <div class="msg-spacer"></div>
     </div>
 </body>

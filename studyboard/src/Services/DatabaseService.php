@@ -16,11 +16,11 @@ class DatabaseService
         $this->pdo = $pdo;
     }
 
-    public function getAllForums()
+    public function getAllActiveForums()
     {
         $nameArray = [];
-        $query = "SELECT * FROM forum "
-            . "ORDER BY forumId DESC";
+        $query = "SELECT * FROM forum WHERE active = 1 "
+            . "ORDER BY forumName ASC";
         $stm = $this->pdo->prepare($query);
         if ($stm && $stm->execute() && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
             foreach ($result as $dataset) {
@@ -253,6 +253,18 @@ class DatabaseService
         ];
         $stm = $this->pdo->prepare($query);
         if ($forumId && $userId && $stm && $stm->execute($valueArray)) {
+            return true;
+        } else {
+            return False;
+        }
+    }
+    
+    public function deactivateForum($forumId)
+    {
+        $query = 'UPDATE forum SET active=0 WHERE forumId=:id';
+        $stm = $this->pdo->prepare($query);
+        $valueArray = [':id' => $forumId];
+        if ($stm && $stm->execute($valueArray)) {
             return true;
         } else {
             return False;
