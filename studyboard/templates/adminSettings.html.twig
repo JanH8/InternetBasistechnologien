@@ -88,7 +88,7 @@
     </form>
 </div>
 <div class="content" id="userStatus">
-    <h3>Der Userstatus {{ user.studentName }} ändern</h3>
+    <h3>Benutzerstatus von {{ user.studentName }} ändern</h3>
     <form class="inputField" method="post" action="/alterUserStatus">
         <input type="hidden" name="userId" value="{{ user.studentId }}">
         <label for="userStatusSelectBox"></label>

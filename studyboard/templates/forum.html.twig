@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <meta http-equiv=“Pragma” content=”no-cache”>
+    <meta http-equiv=“Expires” content=”-1″>
+    <meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
     <meta charset="UTF-8">
     <title>Studyboard | Forum</title>
     <link href="/style/index/image_gal.css" rel="stylesheet" type="text/css"/>
@@ -32,29 +35,34 @@
             <hr>
             <span class="metadata-msg"> {{ message.tstmp|date("d.m.Y H:i", "Europe/Paris") }} | <span
                         style="color:{{ message.color }}"> {{ message.studentName }} </span>| #{{ message.postId }}
-                {% if user == message.studentName %}
-                    | <a href="/deletePost/{{ message.forumName }}/{{ message.postId }}">
+                {% if (user == message.studentName or isAdmin == true or id==forum.creator) %}
+                    | <a href="/deletePost/{{ message.forumId }}/{{ message.postId }}">
                                     <i class="material-icons">delete</i>
                                 </a>
                 {% endif %}
                         </span>
         </div>
         {% endfor %}
-        <div class="msg-sent" id="forum_end">
+        <div class=msg-sent>
             {% set isAbo = false %}
             {% for abo in abos %}
-                {% if abo.forumName == forumName %}
+                {% if abo.forumId == forumId %}
                     {% set isAbo = true %}
                 {% endif %}
             {% endfor %}
             {% if isAbo == true %}
-                <a href="/deleteAbo/{{ forumId }}">Deabbonieren</a>
+            <a href="/deleteAbo/{{ forumId }}">Deabonnieren</a>
             {% else %}
-                <a href="/newAbo/{{ forumId }}">Abbonieren</a>
-            {% endif %}
+            <a href="/newAbo/{{ forumId }}">Abonnieren</a>
+        {% endif %}
+       
         </div>
+         {% if isAdmin or forum.creator == user %}
+            <div class=msg-sent>
+                            <a href="/deactivateForum/{{ forumId }}">deaktivieren</a>
+            </div>
+            {% endif %}
         <div class="msg-spacer"></div>
     </div>
-</div>
 </body>
 </html>

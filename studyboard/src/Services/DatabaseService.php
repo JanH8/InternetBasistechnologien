@@ -16,24 +16,24 @@ class DatabaseService
         $this->pdo = $pdo;
     }
 
-    public function getAllForums()
+    public function getAllActiveForums()
     {
         $nameArray = [];
-        $query = "SELECT forumName FROM forum "
-            . "ORDER BY forumId DESC";
+        $query = "SELECT * FROM forum WHERE active = 1 "
+            . "ORDER BY forumName ASC";
         $stm = $this->pdo->prepare($query);
         if ($stm && $stm->execute() && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
             foreach ($result as $dataset) {
-                $nameArray[] = $dataset['forumName'];
+                $nameArray[] = $dataset;
             }
         }
         return $nameArray;
     }
 
 
-    public function getAllNormalUsers()
+    public function getAllUsers()
     {
-        $query = "SELECT * FROM student WHERE status != 2";
+        $query = "SELECT * FROM student";
         $stm = $this->pdo->prepare($query);
         if ($stm && $stm->execute() && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
             return $result;
@@ -41,17 +41,17 @@ class DatabaseService
         return [];
     }
 
-    public function getMessagesByForum($forumName)
+    public function getMessagesByForum($forumId)
     {
         $messagesArray = [];
         $query = "SELECT * FROM post "
             . "INNER JOIN forum on post.forumId = forum.forumId "
             . "INNER JOIN student on post.author = student.studentId "
-            . "WHERE forumName=:name "
+            . "WHERE forum.forumId=:id "
             . "ORDER BY post.postId";
 
         $stm = $this->pdo->prepare($query);
-        if ($stm && $stm->execute([':name' => $forumName]) && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
+        if ($stm && $stm->execute([':id' => $forumId]) && $result = $stm->fetchAll(PDO::FETCH_ASSOC)) {
             $messagesArray = $result;
         }
         return $messagesArray;
@@ -258,6 +258,18 @@ class DatabaseService
             return False;
         }
     }
+    
+    public function deactivateForum($forumId)
+    {
+        $query = 'UPDATE forum SET active=0 WHERE forumId=:id';
+        $stm = $this->pdo->prepare($query);
+        $valueArray = [':id' => $forumId];
+        if ($stm && $stm->execute($valueArray)) {
+            return true;
+        } else {
+            return False;
+        }
+    }
 
     public function getAbosByUser($userId)
     {
@@ -275,9 +287,9 @@ class DatabaseService
     }
 
 
-    public function makeNewEntry($forum, $message, $userId)
+    public function makeNewEntry($forumId, $message, $userId)
     {
-        $forumId = $this->getForumIdByName($forum);
+        $message = substr($message,0,500);
         $query = 'INSERT INTO post (tstmp, author, forumId, contend) '
             . 'VALUES (:tstmp, :author, :forumId, :content)';
         $valueArray = [
@@ -294,9 +306,8 @@ class DatabaseService
         }
     }
 
-    public function createTimestamp($forum, $userId)
+    public function createTimestamp($forumId, $userId)
     {
-        $forumId = $this->getForumIdByName($forum);
         $query = 'INSERT INTO lastvisited (tstmp, forumId, student ) '
             . 'VALUES (:tstmp, :forumId, :student) ON DUPLICATE KEY UPDATE tstmp = :tstmp, forumId = :forumId, student = :student';
         $valueArray = [
@@ -340,6 +351,19 @@ class DatabaseService
         if ($stm && $stm->execute($valueArray)) {
             $result = $stm->fetch(PDO::FETCH_ASSOC);
             return (isset($result['forumId'])) ? $result['forumId'] : False;
+        } else {
+            return False;
+        }
+    }
+
+    public function getForumById($id)
+    {
+        $query = "SELECT * FROM forum WHERE forumId=:id";
+        $stm = $this->pdo->prepare($query);
+        $valueArray = [':id' => $id];
+        if ($stm && $stm->execute($valueArray)) {
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            return (isset($result)) ? $result : False;
         } else {
             return False;
         }

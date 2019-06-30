@@ -46,6 +46,7 @@
         <th>Unsubscribe</th>
     </tr>
     {% for abo in abos %}
+        {% if abo.active ==1 %}
         <tr>
             <td></td>
             <td>{{ abo.student }}</td>
@@ -64,6 +65,7 @@
             <td><a href="/deleteAbo/{{ abo.forum }}"> Deabbonieren</a></td>
 
         </tr>
+        {% endif %}
     {% endfor %}
 
 </table>

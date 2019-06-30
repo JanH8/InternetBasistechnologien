@@ -9,6 +9,9 @@
     <link href="/style/index/image_gal.css" rel="stylesheet" type="text/css"/>
     <link href="/style/index/alert.css" rel="stylesheet" type="text/css"/>
     <link href="/style/global/mediaquerry/global-mediaq.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/style/settings/settings.css"/>
+
+    <link href="/style/settings/userList.css" rel="stylesheet" type="text/css">
 
     <!--Material icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,24 +25,51 @@
         <h1 class="h" id="heading">Nutzerübersicht</h1>
     </div>
 </a>
-<div class="userList">
-    <table>
+<div class="admin_head">
+    <h2>Administrator Einstellungen</h2>
+    <h3>Wählen Sie einen Nutzer zur Bearbeitung</h3>
+</div>
+<table class="legend">
+    <tr>
+        <th>Zeichen</th>
+        <th></th>
+        <th>Bedeutung</th>
+    </tr>
+    <tr>
+        <td>Daktivierter Benutzer</td>
+        <td></td>
+        <td><i class="material-icons">person_outline</i> </td>
+    </tr>
+    <tr>
+        <td>Benutzer</td>
+        <td></td>
+        <td><i class="material-icons">people</i></td>
+    </tr>
+    <tr>
+        <td>Administrator</td>
+        <td></td>
+        <td><i class="material-icons">person</i></td>
+    </tr>
+</table>
+</div>
+<div class="userListContent">
+    <table class="userList">
         <tr>
-            <th>Name</th>
-            <th>E-Mail</th>
+            <th>Benutzername</th>
+            <th>E-Mail Adresse</th>
             <th>Status</th>
-            <th>Bearbeiten</th>
+            <th></th>
         </tr>
         {% for user in users%}
             <tr>
                 <td>{{ user.studentName }}</td>
-                <td>{{ user.studentName }}</td>
-                <td>{% if 2 == user.status %}Admin{% elseif 1 == user.status %}Aktiv{% else %}Inaktiv{% endif %}</td>
-                <td><a href="/settings/{{ user.studentId }}">Bearbeiten</a></td>
+                <td>{{ user.email }}</td>
+                <td>{% if 2 == user.status %}<i class="material-icons">person</i>{% elseif 1 == user.status %}<i class="material-icons">people</i>{% else %}<i class="material-icons">person_outline</i>{% endif %}</td>
+                <td><a href="/settings/{{ user.studentId }}"><i class="material-icons">build</i> </a></td>
             </tr>
         {% endfor %}
     </table>
-</div>
+
 {% include 'sideMenue.html.twig' %}
 </body>
 </html>
