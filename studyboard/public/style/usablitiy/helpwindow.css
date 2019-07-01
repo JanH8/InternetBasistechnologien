@@ -1,0 +1,71 @@
+html{
+    font-family: 'Raleway', sans-serif;
+}
+
+@keyframes closeAnimation {
+    0%{opacity: 1}
+    50%{opacity: 0}
+    100%{opacity: 1}
+}
+.helpWindow{
+    overflow: hidden;
+    background-color: #3858ff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    display: none;
+    text-align: center;
+    padding-top: 10%;
+}
+.helpWindow h1, h2, h3{
+    display: block;
+    color: white;
+}
+.helpWindow h1{
+    font-size: 30px;
+}
+.helpWindow h2{
+    font-size: 25px;
+}
+.helpWindow h3{
+    font-size: 20px;
+}
+
+.helpWindowtoggle{
+    position: absolute;
+
+    color: #3858ff;
+    display: block;
+    width: 100%;
+    height: 30px;
+    border-radius: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+.helpWindowtoggle:hover{
+    color: lightgray;
+}
+.closebtn{
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    margin: 0 auto;
+    animation-name: closeAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    bottom: 250px;
+    color: white;
+}
+.helpComment{
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: lighter;
+    font-style: italic;
+    color: gray;
+}

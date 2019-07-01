@@ -273,7 +273,8 @@ class StudyboardController extends AbstractController {
             $notifications = $database->getNotificationsForUser($userId);
             $twigArray = [
                 'abos' => $abos,
-                'notifications' => $notifications
+                'notifications' => $notifications,
+                'userId' => $userId
             ];
             return $this->render('home.html.twig', $twigArray);
         } else {

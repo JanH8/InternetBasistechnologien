@@ -8,6 +8,7 @@
     <link href="/style/index/dash.css" rel="stylesheet" type="text/css"/>
     <link href="/style/index/image_gal.css" rel="stylesheet" type="text/css"/>
     <link href="/style/index/alert.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/style/index/abo-list.css"/>
     <link href="/style/global/mediaquerry/global-mediaq.css" rel="stylesheet" type="text/css"/>
 
     <!--Material icons-->
@@ -26,7 +27,7 @@
     <a class="barelement" href="/home"><i class="material-icons">home</i> Home</a>
     <a class="barelement" href="/forum">Foren</a>
     <a class="barelement" href="/createNewForum">Neues Forum</a>
-    <a class="barelement" href="/settings">Settings</a>
+    <a class="barelement" href="/settings">Einstellungen</a>
     <a class="barelement" href="#logout" onclick="togglelogoutalert()">Abmelden</a>
 </div>
 <br>
@@ -36,7 +37,7 @@
 <br>
 <br>
 <br>
-<table>
+<!-- table>
     <tr>
         <th>space</th>
         <th> StudentId</th>
@@ -67,9 +68,46 @@
         </tr>
         {% endif %}
     {% endfor %}
+</table -->
 
-</table>
+{% set abonum = 0 %}
+    {% for abo in abos %}
+        {% if abo.active == 1 %}
+        {% set abonum = (abo|length)/6 %}
+        {% endif %}
+    {% endfor %}
 
+{% if(abonum > 0) %}
+<h2>Deine Abonnierten Foren</h2>
+{% else %}
+    <h2>Du hast im Moment keine Foren abonniert</h2>
+{% endif %}
+<div class="abowarp">
+    {% for abo in abos %}
+         {% if abo.active ==1 %}
+            {% set num = 0 %}
+                 {% for notification in notifications %}
+                    {% if notification.forumId == abo.forum %}
+                         {% set num = notification.number %}
+                    {% endif %}
+                 {% endfor %}
+             <a class="abokachel" href="/forum/{{ abo.forum }}">
+                 {% if num > 0 %}
+                 <div class="unreadCounterWrap">{{ num }}</div>
+                     {% endif %}
+                 <h3>Forum Nr. {{ abo.forum }}</h3>
+                 <h4>{{ abo.forumName }}</h4>
+                 <h3>
+                     {% if (userId == abo.creator) %}
+                         <i class="material-icons">person_pin</i>
+                     {% else %}
+                         <i class="material-icons">group</i>
+                     {% endif %}
+                 </h3>
+                </a>
+         {% endif %}
+    {% endfor %}
+</div>
 {% include 'sideMenue.html.twig' %}
 </body>
 </html>

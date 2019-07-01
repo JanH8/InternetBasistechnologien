@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Welcome to Studyboard®</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../style/login/login.css"/>
-    <link rel="stylesheet" type="text/css" href="../style/login/login_cont.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/login/login_cont.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/usablitiy/helpwindow.css"/>
+    <!--Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <div class="logobox"><img src="../media/studyboard_logo.png" id="logo"></div>
@@ -14,17 +17,32 @@
     <h1 class="loginhead">Login</h1>
     <form method="post" action="/loginValidation">
         <label for="Username"></label>
-        <input type="text" name="name" id="Username" placeholder="Username" required>
+        <input type="text" name="name" id="Username" placeholder="Benutzername" required>
         <label for="Password"></label>
         <input type="Password" name="password" id="Password" placeholder="Passwort" pattern=".{6,}" required/>
-        <input type="submit" value="Submit" id="submit"/>
+        <input type="submit" value="Einloggen" id="submit"/>
     </form>
 </div>
+<!--Help Window Classes-->
+<div class="helpWindowtoggle" onclick="toggleHelpWindow()" style="bottom: 100px"><i class="material-icons">help</i></div>
+<div class="helpWindow" id="helpWindow" onclick="toggleHelpWindow()">
+    <h1>Hilfe: Einloggen</h1>
+    <h2>Allgemein</h2>
+    <h3>Gib deine Zugangsdaten in die entsprechenden Felder ein, klicke dann auf "Einloggen"</h3>
+    <h2>Anmeldefehler</h2>
+    <h3>Bei fehlern bei der Anmeldung, überprüfe zunächst ob die eingegebenen Daten korrekt sind</h3>
+    <h3><b>Nach anlegen eines Accounts muss dieser zunächst von einem Aministrator freigeschaltet werden</b></h3>
+    <h3>Kontaktiere uns hierzu über die Schaltfläche "Kontakt"</h3>
+    <div class="closebtn"><i class="material-icons">touch_app</i> </div>
+</div>
+
 <div class="footer" id="foot">
     <a href="/impressum">Impressum</a>
     <a href="#infos" onclick="tooglecontactmenu()">Kontakt</a>
-    <a href="/newAccount">Sign Up</a>
+    <a href="/newAccount">Benutzer erstellen</a>
 </div>
+
+
 <div class="contact_box" id="contmen">
     <h1 class="c" onclick="tooglecontactmenu()">Kontakt</h1>
     <div class="blline">Vielen Dank für Ihr Interesse!</div>
@@ -36,5 +54,6 @@
 </div>
 <script src=../script/login/dummylogin.js></script>
 <script src=../script/login/contact.js></script>
+<script src="/script/usability/usability.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <title>Neuen Benutzer erstellen</title>
     <link rel="stylesheet" type="text/css" href="/style/login/newAccount.css"/>
     <link rel="stylesheet" type="text/css" href="/style/impressum/impressum.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/usablitiy/helpwindow.css"/>
     <!--Material icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -27,10 +28,10 @@
 
         <input type="Password" id="PasswordConf" placeholder="Repeat Password" onblur="identityValidation()"/>
         <div class="alert" id="validAlert">Passwort stimmt nicht überein!</div> <!--Fehlerbox Default: Opacity 0-->
-
+        <p class="helpComment">Klicke hier, um eine Farbe zu wählen, mit der dich Nutzer im Forum sehen</p>
         <label for="Farbe"></label>
         <input type="color" name="color" id="color" placeholder="Farbe" required>
-        <input type="submit" value="Submit" id="submit"/>
+        <input type="submit" value="Speichern" id="submit"/>
     </form>
 </div>
 <button class="impback" onclick="backLog()"><i class="material-icons">arrow_back</i></button>

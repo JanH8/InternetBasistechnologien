@@ -19,6 +19,8 @@
     <link href="/style/foren/forum-message/forum-message.css" rel="stylesheet" type="text/css"/>
     <!--Material icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Helpwindow for Forum -->
+    <link rel="stylesheet" type="text/css" href="/style/usablitiy/helpwindow.css"/>
 
 </head>
 <body>
@@ -37,13 +39,13 @@
                         style="color:{{ message.color }}"> {{ message.studentName }} </span>| #{{ message.postId }}
                 {% if (user == message.studentName or isAdmin == true or id==forum.creator) %}
                     | <a href="/deletePost/{{ message.forumId }}/{{ message.postId }}">
-                                    <i class="material-icons">delete</i>
+                                    <i class="material-icons" style="float: right; margin-right: 50px">delete</i>
                                 </a>
                 {% endif %}
                         </span>
         </div>
         {% endfor %}
-        <div class=msg-sent>
+
             {% set isAbo = false %}
             {% for abo in abos %}
                 {% if abo.forumId == forumId %}
@@ -51,18 +53,29 @@
                 {% endif %}
             {% endfor %}
             {% if isAbo == true %}
-            <a href="/deleteAbo/{{ forumId }}">Deabonnieren</a>
+                <a href="/deleteAbo/{{ forumId }}"><span class="abobtn"><i class="material-icons">notifications_off</i></span></a>
             {% else %}
-            <a href="/newAbo/{{ forumId }}">Abonnieren</a>
+            <a href="/newAbo/{{ forumId }}"><span class="abobtn"><i class="material-icons">add_alert</i> </span></a>
         {% endif %}
        
-        </div>
+        </span>
          {% if isAdmin or forum.creator == user %}
-            <div class=msg-sent>
-                            <a href="/deactivateForum/{{ forumId }}">deaktivieren</a>
-            </div>
+             <a href="/deactivateForum/{{ forumId }}">
+                 <span class="deactivatebtn"><i class="material-icons">delete_sweep</i></span>
+             </a>
             {% endif %}
+        <span class="helpplsbtn" onclick="toggleHelpWindow()"><i class="material-icons">help</i></span>
+        <span class="helpWindow" id="helpWindow" onclick="toggleHelpWindow()" style="padding-top: 0">
+            <h1>Hilfe: Foren</h1>
+            <h2>Bedienung</h2>
+            <h3><i class="material-icons">add_alert</i> - Forum Abonnieren | <i class="material-icons">notifications_off</i> - Forum Deabonnieren</h3>
+            <h3><i class="material-icons">delete</i> Beitrag löschen</h3>
+            <h3><i class="material-icons">delete_sweep</i> - Forum Deaktivieren (Nur Admins)</h3>
+            <div class="closebtn" style="bottom: 200px"><i class="material-icons">touch_app</i></div>
+        </span>
         <div class="msg-spacer"></div>
     </div>
+</div>
+<script src="/script/usability/usability.js"></script>
 </body>
 </html>

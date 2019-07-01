@@ -1,7 +1,7 @@
 let state = false;
 let x = window.matchMedia("(max-width: 700px)");
 function tooglecontactmenu(x) {
-    if (x.matches) {
+    if (true) {
         if (state) {
             document.getElementById("contmen").style.height = "0";
             document.getElementById("contmen").style.width = "0";
