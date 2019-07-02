@@ -201,3 +201,6 @@ table{
     background-color: white;
     color: red;
 }
+a:visited{
+    color: blue;
+}

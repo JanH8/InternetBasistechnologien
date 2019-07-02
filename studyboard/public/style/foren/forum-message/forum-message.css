@@ -112,17 +112,24 @@ font-weight: lighter;
     color: white;
 }
 .helpplsbtn{
-    top: 200px;
+    top: 0px;
     right: 0;
 }
 .deactivatebtn{
-    top: 100px;
+    top: 300px;
     right: 0;
 }
 .abobtn{
-    top: 0;
+    top: 100px;
     right: 0;
 }
 .refreshbutton{
-    top: 300px;
+    top: 200px;
 }
+a:visited{
+    color: blue;
+}
+i{
+font-size: 17px;
+}
+

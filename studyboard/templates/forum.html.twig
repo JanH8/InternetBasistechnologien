@@ -36,47 +36,65 @@
             {{ message.contend }}
             <hr>
             <span class="metadata-msg"> {{ message.tstmp|date("d.m.Y H:i", "Europe/Paris") }} | <span
-                        style="color:{{ message.color }}"> {{ message.studentName }} </span>| #{{ message.postId }}
+                        style="color:{{ message.color }}"> {{ message.studentName }} </span>
+                {% if message.studentId == forum.creator %}
+                    <i style="font-size:17px;" class="material-icons">person_pin</i>
+                {% endif %}
+                {% if message.status == 2 %}
+                    <i style="font-size:17px;" class="material-icons">person</i>
+                {% endif %}
+                | #{{ message.postId }}
+
                 {% if (user == message.studentName or isAdmin == true or id==forum.creator) %}
-                    | <a href="/deletePost/{{ message.forumId }}/{{ message.postId }}">
-                                    <i class="material-icons" style="float: right; margin-right: 50px">delete</i>
+                    <a href="">
+                        <span><i onclick="deletePost({{ message.forumId }},{{ message.postId }})" class="material-icons"
+                                 style="float: right; margin-right: 50px">delete</i></span>
                                 </a>
                 {% endif %}
                         </span>
         </div>
         {% endfor %}
 
-            {% set isAbo = false %}
-            {% for abo in abos %}
-                {% if abo.forumId == forumId %}
-                    {% set isAbo = true %}
-                {% endif %}
-            {% endfor %}
-            {% if isAbo == true %}
-                <a href="/deleteAbo/{{ forumId }}"><span class="abobtn"><i class="material-icons">notifications_off</i></span></a>
-            {% else %}
-            <a href="/newAbo/{{ forumId }}"><span class="abobtn"><i class="material-icons">add_alert</i> </span></a>
-        {% endif %}
-       
-        </span>
-         {% if isAdmin or forum.creator == user %}
-             <a href="/deactivateForum/{{ forumId }}">
-                 <span class="deactivatebtn"><i class="material-icons">delete_sweep</i></span>
-             </a>
+        {% set isAbo = false %}
+        {% for abo in abos %}
+            {% if abo.forumId == forumId %}
+                {% set isAbo = true %}
             {% endif %}
+        {% endfor %}
+        {% if isAbo == true %}
+            <a href=""><span onclick="removeAbo({{ forumId }})" class="abobtn"><i class="material-icons">notifications_off</i></span></a>
+        {% else %}
+            <a href=""><span onclick="newAbo({{ forumId }})" class="abobtn"><i
+                            class="material-icons">add_alert</i> </span></a>
+        {% endif %}
+
+        </span>
+
         <span class="helpplsbtn" onclick="toggleHelpWindow()"><i class="material-icons">help</i></span>
-        <span class="refreshbutton"><i class="material-icons">refresh</i></span>
+        <a href=""> <span class="refreshbutton"><i class="material-icons" onclick="refresh()">refresh</i></span></a>
+        {% if isAdmin or forum.creator == user %}
+            <a href=""><span onclick="deactivateForum({{ forumId }})" class="deactivatebtn"><i class="material-icons">delete_sweep</i></span>
+            </a>
+        {% endif %}
         <span class="helpWindow" id="helpWindow" onclick="toggleHelpWindow()" style="padding-top: 0">
             <h1>Hilfe: Foren</h1>
             <h2>Bedienung</h2>
-            <h3><i class="material-icons">add_alert</i> - Forum Abonnieren | <i class="material-icons">notifications_off</i> - Forum Deabonnieren</h3>
-            <h3><i class="material-icons">delete</i> Beitrag löschen</h3>
+            <h3><i class="material-icons">add_alert</i> - Forum Abonnieren | <i
+                        class="material-icons">notifications_off</i> - Forum Deabonnieren</h3>
+            <h3><i class="material-icons">delete</i> - Beitrag löschen</h3>
             <h3><i class="material-icons">delete_sweep</i> - Forum Deaktivieren (Nur Admins)</h3>
+            <h3><i class="material-icons">person_pin</i> - Ersteller des Forums (kann Beiträge löschen)</h3>
+                        <h3><i class="material-icons">person</i> - Administrator</h3>
+
             <div class="closebtn" style="bottom: 200px"><i class="material-icons">touch_app</i></div>
         </span>
         <div class="msg-spacer"></div>
     </div>
 </div>
 <script src="/script/usability/usability.js"></script>
+<script src="/script/foren/refresh.js"></script>
+<script src="/script/foren/forum_intern.js"></script>
+
+
 </body>
 </html>
