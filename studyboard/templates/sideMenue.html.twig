@@ -16,10 +16,11 @@
     <a href="/home"><i class="material-icons">home</i> Home</a>
     <a href="/forum"><i class="material-icons">announcement</i>Foren</a>
     <a href="/createNewForum"><i class="material-icons">create</i>Neues Forum</a>
-    <a href="/settings"><i class="material-icons">settings</i>Settings</a>
+    <a href="/settings"><i class="material-icons">settings</i>Einstellungen</a>
     <a href="/impressum"><i class="material-icons">info</i>Impressum</a>
     <a href="#logout" id="navlogout" onclick="togglelogoutalert()"><i class="material-icons">power_settings_new</i>Logout</a>
 </div>
+<div class="navmodal" onclick="togglenav()" id="modal"></div>
 <button id="navbtn" onclick="togglenav()"><i class="material-icons" id="btnlogo">reorder</i> </button>
 <!--End of Nav-->
 
@@ -30,6 +31,5 @@
         <a href="#abort" id="abortbtn" onclick="togglelogoutalert()">Abbrechen</a>
     </div>
 </div>
-
 <script src="/script/global/navbar.js"></script>
 <script src="/script/global/logout/logout.js"></script>

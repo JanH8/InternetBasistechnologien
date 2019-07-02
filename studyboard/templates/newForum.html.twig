@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/style/login/login.css"/>
     <link rel="stylesheet" type="text/css" href="/style/login/login_cont.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/usablitiy/helpwindow.css"/>
 </head>
 <body>
 <div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
@@ -17,6 +18,19 @@
         <input type="submit" value="Erstellen" id="submit"/>
     </form>
 </div>
+<div class="helpWindowtoggle" style="bottom: 0"><i class="material-icons" onclick="toggleHelpWindow()">help</i></div>
+<div class="helpWindow" id="helpWindow" onclick="toggleHelpWindow()">
+    <h1>Hilfe: Forum erstellen</h1>
+    <h2>Allgemein</h2>
+    <h3>Jeder Benutzer kann beliebig viele Foren erstellen</h3>
+    <h3>Gib hierzu den Namen / den Betreff in das entsprechende Feld ein</h3>
+    <h2>Nutzerrechte</h2>
+    <h3><i class="material-icons">group</i> - Benutzer: Nachrichten Schreiben | Empfangen | Eigene löschen</h3>
+    <h3><i class="material-icons">person_pin</i> - Besitzer: Nachrichten Schreiben | Empfangen | Alle Nachrichten löschen</h3>
+    <h3><i class="material-icons">person</i> - Administratoren: Nachrichten Schreiben | Empfangen | Alle Nachrichten löschen | Foren deaktivieren</h3>
+    <div class="closebtn"><i class="material-icons">touch_app</i> </div>
+</div>
     {% include 'sideMenue.html.twig' %}
+<script src="/script/usability/usability.js"></script>
 </body>
 </html>

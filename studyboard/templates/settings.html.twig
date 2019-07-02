@@ -29,7 +29,8 @@
         <div class="barlink" onclick="opensite(event, 'windowEmail')">E-Mail ändern</div>
         <div class="barlink" onclick="opensite(event, 'windowPasswd')">Passwort ändern</div>
         <div class="barlink" onclick="opensite(event, 'windowColor')">Kontofarbe ändern</div>
-        <div class="barlink" id="del"><a href="/deleteAccount">Konto löschen</a></div>
+        <div class="barlink" id="del" onclick="toggleDeleteAlert()">Konto Deaktivieren</div>
+        <a href="/deleteAccount"><div class="barlink" id="confirm">Bestätigen</div></a>
     </div>
 
 <div class="content" id="windowCurrent">
@@ -89,5 +90,6 @@
 <div class="footsite"></div>
 <script src="/script/settings/settings.js"></script>
 <script src="/script/login/abstractValid.js"></script>
+<script src="/script/settings/deleteAlert.js"></script>
 </body>
 </html>

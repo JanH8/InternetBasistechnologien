@@ -1,5 +1,6 @@
 html{
-    overflow-y: hidden;
+    overflow-y: scroll;
+    font-family: 'Raleway', sans-serif;
 }
 
 h2{
@@ -47,7 +48,7 @@ table{
     height: 100%;
     width: 50%;
     border: 1px solid blue;
-    transition: background-color .3s, color .3s, border .3s;
+    transition: background-color .3s, color .3s, border .3s, width .4s;
 }
 
 .barlink.active{
@@ -186,4 +187,17 @@ table{
 }
 .inputField select:hover{
     box-shadow: 3px 3px 13px gray;
+}
+
+#confirm{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    width: 0;
+    opacity: 0;
+    transition: width .5s, opacity .5s;
+}
+#confirm:hover{
+    background-color: white;
+    color: red;
 }

@@ -25,7 +25,7 @@
 
     <div class="line"></div>
     <div class="bar">
-        <div class="barlink" onclick="opensite(event, 'windowCurrent')">Aktuelle Kontoinformationen</div>
+        <div class="barlink" onclick="opensite(event, 'windowCurrent')">Kontoinformationen</div>
         <div class="barlink" onclick="opensite(event, 'windowEmail')">E-Mail ändern</div>
         <div class="barlink" onclick="opensite(event, 'windowPasswd')">Passwort ändern</div>
         <div class="barlink" onclick="opensite(event, 'windowColor')">Kontofarbe ändern</div>
@@ -33,7 +33,7 @@
     </div>
 
 <div class="content" id="windowCurrent">
-    <h3>Kontoinformationen</h3>
+    <h3>Kontoinformationen von {{ user.studentName }}</h3>
     <table class="current">
         <tr>
             <td>Nutzername:</td>
@@ -62,7 +62,7 @@
             <div class="mailAlert" id="mailAlert">Eingabe ist keine E-Mail</div>
             <input type="text" id="repeat" placeholder="E-Mail wiederholen" onblur="validateIdent('email', 'repeat', 'repeatAlert', 'Eingaben stimmen nicht überein!')">
             <div class="mailAlert" id="repeatAlert">Eingegebene E-Mail zu kurz!</div>
-            <input type="submit" class="submit" value="Submit" id="submit"/>
+            <input type="submit" class="submit" value="Speichern" id="submit"/>
         </form>
 </div>
 <div class="content" id="windowPasswd">
@@ -74,7 +74,7 @@
             <div class="mailAlert" id="pwAlert">Eingabe ist keine E-Mail</div>
             <input type="password" id="repeatpw" placeholder="Passwort wiederholen" onblur="validateIdent('Password', 'repeatpw', 'pwrepeatAlert', 'Eingaben stimmen nicht überein!')">
             <div class="mailAlert" id="pwrepeatAlert">Eingegebene E-Mail zu kurz!</div>
-            <input type="submit" class="submit" value="Submit" id="submit"/>
+            <input type="submit" class="submit" value="Speichern" id="submit"/>
     </form>
 </div>
 <div class="content" id="windowColor">
@@ -84,7 +84,7 @@
         <input type="hidden" name="userId" value="{{ user.studentId }}">
         <label for="color"></label>
         <input type="color" name="color" id="color" value="{{ user.color }}">
-        <input type="submit" value="Submit" class="submit">
+        <input type="submit" value="Speichern" class="submit">
     </form>
 </div>
 <div class="content" id="userStatus">
@@ -93,11 +93,11 @@
         <input type="hidden" name="userId" value="{{ user.studentId }}">
         <label for="userStatusSelectBox"></label>
         <select id="userStatusSelectBox" name="userStatus" value="{{ user.status }}">
-            <option value="0">Deaktivieren</option>
-            <option value="1">Aktivieren</option>
-            <option value="2">Zum Administrator befördern</option>
+            <option value="0">Deaktiviert</option>
+            <option value="1">Benutzer</option>
+            <option value="2">Administrator</option>
         </select>
-        <input type="submit" value="Submit" class="submit">
+        <input type="submit" value="Speichern" class="submit">
     </form>
 </div>
 
