@@ -15,7 +15,7 @@
     <h1>Neuen Account anlegen</h1>
     <form method="post" action="/createNewAccount">
         <label for="Username"></label>
-        <input type="text" name="name" id="Username" placeholder="Username" onblur="userValidation()">
+        <input type="text" name="name" id="Username" placeholder="Benutzername" onblur="userValidation()">
         <div class="alert" id="usrAlert">Benutzername zu kurz</div> <!--Fehlerbox Default: Opacity 0-->
 
         <label for="Email"></label>
@@ -26,7 +26,7 @@
         <input type="Password" name="password" id="Password" placeholder="Passwort" onblur="passwordValidation()"/>
         <div class="alert" id="pwAlert">Passwort zu kurz!</div> <!--Fehlerbox Default: Opacity 0-->
 
-        <input type="Password" id="PasswordConf" placeholder="Repeat Password" onblur="identityValidation()"/>
+        <input type="Password" id="PasswordConf" placeholder="Passwort wiederholen" onblur="identityValidation()"/>
         <div class="alert" id="validAlert">Passwort stimmt nicht überein!</div> <!--Fehlerbox Default: Opacity 0-->
         <p class="helpComment">Klicke hier, um eine Farbe zu wählen, mit der dich Nutzer im Forum sehen</p>
         <label for="Farbe"></label>
