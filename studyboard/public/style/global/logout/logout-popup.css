@@ -1,6 +1,6 @@
 .bblock{
     /*Position*/
-    position: absolute;
+    position: fixed;
     display: block;
     height: 0;
     width: 100%;
