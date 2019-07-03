@@ -1,0 +1,9 @@
+<link rel="stylesheet" type="text/css" href="/style/feedback/feedback.css"/>
+<div class="feedback-box">
+    {% for message in app.flashes('er') %}
+        <p class='errorMessage'>{{ message }}</p>
+    {% endfor %}
+    {% for message in app.flashes('fb') %}
+        <p class='feedbackMessage'>{{ message }}</p>
+    {% endfor %}
+</div>

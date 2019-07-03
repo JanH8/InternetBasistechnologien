@@ -76,7 +76,7 @@
         {% set abonum = (abo|length)/6 %}
         {% endif %}
     {% endfor %}
-
+{% include 'feedbackbox.html.twig' %}
 {% if(abonum > 0) %}
 <h2>Deine Abonnierten Foren</h2>
 {% else %}

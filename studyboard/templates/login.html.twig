@@ -15,9 +15,10 @@
 <div class="navigatorcont">
 
     <h1 class="loginhead">Login</h1>
+    {% include 'feedbackbox.html.twig' %}
     <form method="post" action="/loginValidation">
         <label for="Username"></label>
-        <input type="text" name="name" id="Username" placeholder="Benutzername" required>
+        <input type="text" name="name" id="Username" placeholder="Benutzername" value="{{ name }}" required>
         <label for="Password"></label>
         <input type="Password" name="password" id="Password" placeholder="Passwort" pattern=".{6,}" required/>
         <input type="submit" value="Einloggen" id="submit"/>

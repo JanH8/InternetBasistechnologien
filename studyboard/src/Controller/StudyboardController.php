@@ -26,7 +26,10 @@ class StudyboardController extends AbstractController {
      * @Route("/", name="login")
      */
     public function loginPage() {
-        return $this->render('login.html.twig');
+        $twigArray = [
+            'name' => (isset($_GET['name']))?$_GET['name']:''
+        ];
+        return $this->render('login.html.twig', $twigArray);
     }
 
     /**
@@ -42,6 +45,7 @@ class StudyboardController extends AbstractController {
                 throw new Exception('Anmeldung gescheitert');
             }
         } catch (Exception $e) {
+            $this->addFlash('er', 'Anmeldung fehlgeschlagen!');
             $username = (key_exists('name', $_POST)) ? '?name=' . filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS) : '';
             return $this->redirect('/' . $username);
         }
@@ -123,7 +127,7 @@ class StudyboardController extends AbstractController {
         if ($this->userIsLoggedIn($session)) {
             $userId = $session->get('userId');
             $database->alterUserStatus($userId,0);
-            $this->addFlash('fd','Konto wurde erfolgreich deaktiviert!');
+            $this->addFlash('fb','Konto wurde erfolgreich deaktiviert!');
         }
         $this->userLogout($session);
         return $this->redirect("/");
@@ -216,9 +220,9 @@ class StudyboardController extends AbstractController {
             $userId = intval($_POST['userId']);
         }
         if ($database->changeEmail($userId)) {
-            $this->addFlash('fb', 'Account wurde erstellt!');
+            $this->addFlash('fb', 'E-Mail-Adresse wurde geändert !');
         } else {
-            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+            $this->addFlash('er', 'E-Mail-Adresse konnte nicht geändert !');
         }
         if($this->isAdmin($session)) {
             return $this->redirect('/userList');
@@ -233,9 +237,9 @@ class StudyboardController extends AbstractController {
         $session = $this->startSession();
         $userId = $session->get('userId');
         if ($database->changePassword($userId)) {
-            $this->addFlash('fb', 'Account wurde erstellt!');
+            $this->addFlash('fb', 'Das Passwort wurde geändert!');
         } else {
-            $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+            $this->addFlash('er', 'Das Passwort konnte nicht geändert werden!');
         }
         return $this->redirect('/');
     }
@@ -246,10 +250,12 @@ class StudyboardController extends AbstractController {
     public function createNewAccount(DatabaseService $database) {
         if ($database->registerNewAccount()) {
             $this->addFlash('fb', 'Account wurde erstellt!');
+            return $this->redirect('/');
         } else {
             $this->addFlash('er', 'Account konnte nicht erstellt werden!');
+            return $this->redirect('/newAccount');
         }
-        return $this->redirect('/');
+
     }
 
     /**

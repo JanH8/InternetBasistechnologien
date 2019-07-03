@@ -13,6 +13,7 @@
 <div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
 <div class="navigatorcont">
     <h1>Neuen Account anlegen</h1>
+    {% include 'feedbackbox.html.twig' %}
     <form method="post" action="/createNewAccount">
         <label for="Username"></label>
         <input type="text" name="name" id="Username" placeholder="Benutzername" onblur="userValidation()">

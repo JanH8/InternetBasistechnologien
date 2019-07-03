@@ -1,0 +1,9 @@
+.feedback-box {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.errorMessage {
+    color: red;
+}
+

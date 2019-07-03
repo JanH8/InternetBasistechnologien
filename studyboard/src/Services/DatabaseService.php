@@ -82,7 +82,7 @@ class DatabaseService
                 ':color' => $color
             ];
             $stm = $this->pdo->prepare($query);
-            if ($name && $this->isHexColor($color) && $filterdEmail && $stm && $stm->execute($valueArray)) {
+            if ($name && !$this->userNameExists($name) && $this->isHexColor($color) && $filterdEmail && $stm && $stm->execute($valueArray)) {
                 return true;
             } else {
                 throw new Exception('Anmeldung fehlgeschlagen!');
@@ -155,6 +155,13 @@ class DatabaseService
         } catch (Exception $e) {
             return false;
         }
+    }
+
+    public function userNameExists(string $name): bool
+    {
+        $stm = $this->pdo->prepare('SELECT studentName FROM student WHERE studentName = :name');
+        $stm->execute([':name' => $name]);
+        return boolval($stm->rowCount());
     }
 
 
