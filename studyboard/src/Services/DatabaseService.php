@@ -229,9 +229,9 @@ class DatabaseService
         ];
         $stm = $this->pdo->prepare($query);
         if (!$forumId && $forumNameLength && 30 > $forumNameLength && $stm && $stm->execute($valueArray)) {
-            return true;
+            return $this->pdo->lastInsertId();
         } else {
-            return False;
+            return '';
         }
     }
 
@@ -296,7 +296,7 @@ class DatabaseService
 
     public function makeNewEntry($forumId, $message, $userId)
     {
-        $message = substr($message,0,500);
+        $message = substr(trim($message),0,500);
         $query = 'INSERT INTO post (tstmp, author, forumId, contend) '
             . 'VALUES (:tstmp, :author, :forumId, :content)';
         $valueArray = [
@@ -306,7 +306,7 @@ class DatabaseService
             ':content' => $message
         ];
         $stm = $this->pdo->prepare($query);
-        if ($forumId && $stm && $stm->execute($valueArray)) {
+        if ($message && $forumId && $stm && $stm->execute($valueArray)) {
             return true;
         } else {
             return False;

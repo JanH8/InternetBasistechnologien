@@ -12,6 +12,7 @@
 <div class="logobox"><img src="/media/studyboard_logo.png" id="logo"></div>
 <div class="navigatorcont">
     <h1 class="loginhead">Erstelle ein neues Forum</h1>
+    {% include 'feedbackbox.html.twig' %}
     <form method="post" action="/createNewForum">
         <label for="Username"></label>
         <input type="text" name="forumName" id="Forumname" placeholder="Name des Forums" required>
