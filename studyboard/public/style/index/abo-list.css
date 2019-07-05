@@ -24,6 +24,7 @@
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
+    transition: background-color .5s, color .5s;
 }
 .abokachel:visited{
     color: inherit;
